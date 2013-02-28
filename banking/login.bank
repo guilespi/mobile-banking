@@ -1,0 +1,87 @@
+"List:Login" : {
+    "order-by": "timestamp",
+    "group-by" : "day",
+    "api": "http://localhost:8000/newsfeed",
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "f1",
+            "description" : "f2",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+},
+
+"List:Movements" : {
+    "key": "valiue",
+    "api":"https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=iphone",
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "f1",
+            "description" : "f2",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+},
+
+"List:Ubiquenos" : {
+    "order-by" : "timestamp",
+    "api": "http://localhost:8000/newsfeed",
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "f1",
+            "description" : "f2",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+},
+
+"List:Contact" : {
+    "order-by" : "timestamp",
+    "api": "http://localhost:8000/newsfeed",
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "f1",
+            "description" : "f2",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+},
+
+"List:Payments" : {
+    "order-by" : "timestamp",
+    "api": "http://localhost:8000/newsfeed",
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "title",
+            "description" : "abstract",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+},
+
+"List:Newsfeed" : {
+    "order-by" : "timestamp",
+    "api": {
+        "type":"REST",
+        "url": "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=uruguay"
+    },
+    "cell": {
+        "style" : "money",
+        "fields": {
+            "title" : "f1",
+            "description" : "f2",
+            "money-total" : "f3",
+            "money-partial" : "f4"
+        }
+    }
+}

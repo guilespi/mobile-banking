@@ -7,6 +7,10 @@
 //
 
 #import "AppDelegate.h"
+#import "AppParser.h"
+#import "StandardTableView.h"
+#import "NavigationEntry.h"
+#import "ListView.h"
 
 @implementation AppDelegate
 
@@ -14,11 +18,56 @@
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
 
+/*
+    Creates the ordered navigation menu according to definition.
+    TODO: this should live somewhere else along the parsing process? review
+ */
+-(UITabBarController*)buildTabBarController:(Application*)app {
+    NSMutableArray *views = [[NSMutableArray alloc] init];
+    for (id e in app.navigation) {
+        NavigationEntry *entry = (NavigationEntry*)e;
+        if (!entry.isEnabled) {
+            continue;
+        }
+        //TODO: subclass the view definitions and change this
+        ListView *listView = [app.views objectForKey:[entry.target lowercaseString]];
+        if (!listView) {
+            [NSException raise:@"Invalid definition" format:@"Navigation target %@ does not exist as a view", entry.target];
+        }
+        UIViewController *view = listView.view;
+        view.title = entry.text;
+        NSURL* iconUrl = [NSURL URLWithString:entry.icon];
+        if (iconUrl && iconUrl.scheme) {
+            //TODO:should check for cached image somehow and avoid the sync request
+            view.tabBarItem.image = [UIImage imageWithData:[NSData dataWithContentsOfURL: iconUrl]];
+        }
+        else {
+            view.tabBarItem.image = [UIImage imageNamed:entry.icon];
+        }
+        [views addObject:view];
+    }
+    UITabBarController * tabBar = [[UITabBarController alloc] init];
+    tabBar.viewControllers = [views copy];
+    return tabBar;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
+
+    //parse definition
+    AppParser *p = [[AppParser alloc] init];
+    Application *app = [p parseApplication];
+
+    //create navigation layout
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    _tabBarController = [self buildTabBarController:app];
+    self.window.rootViewController = _tabBarController;
+
+    //start
+    [app run];
     [self.window makeKeyAndVisible];
     return YES;
 }

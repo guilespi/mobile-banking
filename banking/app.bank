@@ -1,0 +1,11 @@
+"App" : {
+  "default-language" : "spanish",
+    "background" : "toto",
+    "theme" : "light",
+    "auth" : {
+        "type" : "cookies",
+        "cookie-name" : "tatita",
+        "cookie-val" : "field-cook"
+    }
+}
+

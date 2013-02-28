@@ -1,0 +1,44 @@
+"Navigation" : {
+    "entries" : {
+        "login" : {
+            "text" : "Home",
+            "icon" : "lock",
+            "authenticated" : true,
+            "enabled" : false,
+            "target" : "List:Login"
+        },
+        "ubiquenos" : {
+            "text" : "Ubiquenos",
+            "icon" : "location",
+            "authenticated" : false,
+            "enabled" : false,
+            "target" : "List:Ubiquenos"
+        },
+        "posicion" : {
+            "text" : "Posición",
+            "icon" : "notepad",
+            "enabled": false,
+            "target" : "List:Movements"
+        }, 
+        "contactenos" : {
+            "text": "Contáctenos",
+            "icon": "email",
+            "enabled": true,
+            "target": "List:Contact"
+        },
+        "pagos" : {
+            "text": "Pagos",
+            "icon": "calendar",
+            "enabled": true,
+            "target": "List:Payments"
+        },
+        "novedades" : {
+            "text": "Noticias",
+            "icon": "info",
+            "enabled": false,
+            "target": "List:Newsfeed"
+        }
+    },
+    "order" : ["login", "ubiquenos", "posicion", "contactenos","pagos", "novedades"],
+    "default" : "login"
+}

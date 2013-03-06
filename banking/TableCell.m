@@ -14,7 +14,7 @@
 +(TableCell*) createCell:(NSDictionary*)d {
     NSDictionary *cellStyle = [d objectForKey:@"style"];
     if ([cellStyle isEqual: @"money"]) {
-        return [[MoneyCell alloc] initFromDictionary:d];
+        return [[MoneyCell alloc] initWithDictionary:d];
     }
     [NSException raise:@"Unknown cell style" format:@"Don't know how to build cell style %@", cellStyle];
     return nil; //makes the compiler happy

@@ -15,7 +15,7 @@ static const int PARTIAL_MONEY_TAG = 4;
 
 @implementation MoneyCell
 
-- (MoneyCell*) initFromDictionary:(NSDictionary*)definition {
+- (MoneyCell*) initWithDictionary:(NSDictionary*)definition {
     self = [super init];
     self.identifier = @"money-cell";
     NSDictionary *fields = [definition objectForKey:@"fields"];

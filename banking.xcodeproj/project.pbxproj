@@ -56,6 +56,12 @@
 		C655428616DE51430013D3EE /* navigationBuildingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = C655428516DE51430013D3EE /* navigationBuildingTests.m */; };
 		C689ABA216DFAEB30081AD94 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C689ABA116DFAEB30081AD94 /* TableCell.m */; };
 		C689ABA516DFAFDB0081AD94 /* MoneyCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C689ABA416DFAFDA0081AD94 /* MoneyCell.m */; };
+		C689ABA816DFF6B50081AD94 /* SplashViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C689ABA716DFF6B50081AD94 /* SplashViewController.m */; };
+		C689ABAE16DFFDA10081AD94 /* backgroundBrillo.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAA16DFFDA10081AD94 /* backgroundBrillo.png */; };
+		C689ABAF16DFFDA10081AD94 /* backgroundBrillo@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAB16DFFDA10081AD94 /* backgroundBrillo@x2.png */; };
+		C689ABB016DFFDA10081AD94 /* logoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAC16DFFDA10081AD94 /* logoSplash.png */; };
+		C689ABB116DFFDA10081AD94 /* logoSplash@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAD16DFFDA10081AD94 /* logoSplash@x2.png */; };
+		C6BD0C7116E7D1DD00948985 /* UIColor+colorFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +144,14 @@
 		C689ABA116DFAEB30081AD94 /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
 		C689ABA316DFAFDA0081AD94 /* MoneyCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MoneyCell.h; sourceTree = "<group>"; };
 		C689ABA416DFAFDA0081AD94 /* MoneyCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MoneyCell.m; sourceTree = "<group>"; };
+		C689ABA616DFF6B50081AD94 /* SplashViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SplashViewController.h; sourceTree = "<group>"; };
+		C689ABA716DFF6B50081AD94 /* SplashViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SplashViewController.m; sourceTree = "<group>"; };
+		C689ABAA16DFFDA10081AD94 /* backgroundBrillo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = backgroundBrillo.png; sourceTree = "<group>"; };
+		C689ABAB16DFFDA10081AD94 /* backgroundBrillo@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "backgroundBrillo@x2.png"; sourceTree = "<group>"; };
+		C689ABAC16DFFDA10081AD94 /* logoSplash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoSplash.png; sourceTree = "<group>"; };
+		C689ABAD16DFFDA10081AD94 /* logoSplash@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoSplash@x2.png"; sourceTree = "<group>"; };
+		C6BD0C6F16E7D1DD00948985 /* UIColor+colorFromHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+colorFromHexString.h"; sourceTree = "<group>"; };
+		C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colorFromHexString.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -205,6 +219,7 @@
 		C60D73EC16D7E814004F5950 /* banking */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD0C6B16E7D18800948985 /* Utils */,
 				C60D743C16D96F22004F5950 /* Views */,
 				C60D743B16D96F0C004F5950 /* Definitions */,
 				C60D73F516D7E815004F5950 /* AppDelegate.h */,
@@ -301,6 +316,8 @@
 			children = (
 				C60D743D16D96F67004F5950 /* StandardTableView.h */,
 				C60D743E16D96F67004F5950 /* StandardTableView.m */,
+				C689ABA616DFF6B50081AD94 /* SplashViewController.h */,
+				C689ABA716DFF6B50081AD94 /* SplashViewController.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -308,6 +325,7 @@
 		C60D744016DA86F8004F5950 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C689ABA916DFFD830081AD94 /* splash */,
 				C60D745516DA8DC6004F5950 /* info.png */,
 				C60D745316DA8DBE004F5950 /* key.png */,
 				C60D745116DA8AAF004F5950 /* email.png */,
@@ -321,6 +339,26 @@
 				C60D744116DA88B3004F5950 /* refresh.png */,
 			);
 			name = images;
+			sourceTree = "<group>";
+		};
+		C689ABA916DFFD830081AD94 /* splash */ = {
+			isa = PBXGroup;
+			children = (
+				C689ABAA16DFFDA10081AD94 /* backgroundBrillo.png */,
+				C689ABAB16DFFDA10081AD94 /* backgroundBrillo@x2.png */,
+				C689ABAC16DFFDA10081AD94 /* logoSplash.png */,
+				C689ABAD16DFFDA10081AD94 /* logoSplash@x2.png */,
+			);
+			name = splash;
+			sourceTree = "<group>";
+		};
+		C6BD0C6B16E7D18800948985 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				C6BD0C6F16E7D1DD00948985 /* UIColor+colorFromHexString.h */,
+				C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */,
+			);
+			name = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -414,6 +452,10 @@
 				C60D745416DA8DBE004F5950 /* key.png in Resources */,
 				C60D745616DA8DC6004F5950 /* info.png in Resources */,
 				C60D74EF16DCF2EB004F5950 /* Settings.bundle in Resources */,
+				C689ABAE16DFFDA10081AD94 /* backgroundBrillo.png in Resources */,
+				C689ABAF16DFFDA10081AD94 /* backgroundBrillo@x2.png in Resources */,
+				C689ABB016DFFDA10081AD94 /* logoSplash.png in Resources */,
+				C689ABB116DFFDA10081AD94 /* logoSplash@x2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -476,6 +518,8 @@
 				C60D74EA16DCE32E004F5950 /* SplashScreen.m in Sources */,
 				C689ABA216DFAEB30081AD94 /* TableCell.m in Sources */,
 				C689ABA516DFAFDB0081AD94 /* MoneyCell.m in Sources */,
+				C689ABA816DFF6B50081AD94 /* SplashViewController.m in Sources */,
+				C6BD0C7116E7D1DD00948985 /* UIColor+colorFromHexString.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

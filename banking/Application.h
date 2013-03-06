@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SplashScreen.h"
 
 @interface Application : NSObject
 
@@ -14,6 +15,7 @@
 @property NSString *background;
 @property NSMutableArray *navigation;
 @property NSMutableDictionary *views;
+@property SplashScreen *splashScreen;
 
 -(void)run;
 -(void)setProperties:(NSDictionary*)props;

@@ -104,7 +104,7 @@
             if (cell == nil) {
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle
                                               reuseIdentifier:PlaceholderCellIdentifier];
-                cell.detailTextLabel.textAlignment = UITextAlignmentCenter;
+                cell.detailTextLabel.textAlignment = NSTextAlignmentCenter;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
             }
             cell.detailTextLabel.text = @"Loading…";

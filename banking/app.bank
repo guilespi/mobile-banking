@@ -1,11 +1,18 @@
 "App" : {
   "default-language" : "spanish",
-    "background" : "toto",
+    "background" : "#02253e",
     "theme" : "light",
     "auth" : {
         "type" : "cookies",
         "cookie-name" : "tatita",
         "cookie-val" : "field-cook"
+    },
+    "splash-screen": {
+        "background" : "backgroundBrillo",
+        "logo": "logoSplash",
+        "upper-text" : "By",
+        "lower-text" : "Infocorp",
+        "text-color" : "#ffffff"
     }
 }
 

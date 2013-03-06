@@ -15,5 +15,5 @@
 @property NSString *totalMoneyField;
 @property NSString *partialMoneyField;
 
-- (MoneyCell*) initFromDictionary:(NSDictionary*)definition;
+- (MoneyCell*) initWithDictionary:(NSDictionary*)definition;
 @end

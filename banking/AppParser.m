@@ -48,6 +48,10 @@
 - (void)parseApp:(Application*)app withProperties:(NSDictionary*)d {
     app.defaultLanguage = [d objectForKey:@"default-language"] ? : @"spanish";
     app.background = [d objectForKey:@"background"] ? : @"default-back.png?";
+    NSDictionary *splashDefinition = [d objectForKey:@"splash-screen"];
+    if (splashDefinition) {
+        app.splashScreen = [[SplashScreen alloc] initWithDictionary:splashDefinition];
+    }
 }
 
 /*  Parse the navigation dictionary and creates the corresponding array of

@@ -69,6 +69,12 @@
     //start
     [app run];
     [self.window makeKeyAndVisible];
+    if (app.splashScreen) {
+        [self.window.rootViewController presentViewController:app.splashScreen.view animated:false completion:^{
+        
+        }];
+    }
+    
     return YES;
 }
 

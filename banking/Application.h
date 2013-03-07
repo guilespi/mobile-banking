@@ -8,14 +8,17 @@
 
 #import <Foundation/Foundation.h>
 #import "SplashScreen.h"
+#import "Theme.h"
 
 @interface Application : NSObject
 
 @property NSString *defaultLanguage;
 @property NSString *background;
+@property UIColor *backgroundColor;
 @property NSMutableArray *navigation;
 @property NSMutableDictionary *views;
 @property SplashScreen *splashScreen;
+@property Theme *theme;
 
 -(void)run;
 -(void)setProperties:(NSDictionary*)props;

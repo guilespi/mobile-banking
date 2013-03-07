@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "ViewDefinition.h"
+#import "Application.h"
 
 @interface LoginView : ViewDefinition {
     NSArray *alternates;
 }
 
-//@property UINavigationController *view;
+@property NSString *disclaimer;
+@property bool useDocumentType;
 
--(LoginView*)initWithDictionary:(NSDictionary*)definition;
+-(LoginView*)initWithDictionary:(NSDictionary*)definition andApp:(Application*)app;
 
 @end

@@ -1,8 +1,9 @@
 "Login" : {
     "alternates" : ["pin"],
+    "disclaimer" : "Copyright 2013 - Infocorp Todos los derechos reservados -\nLorem ipsum dolor sit amet. consectetur adipiscing",
     "entries": {
         "basic" : {
-            "use-document" : false,
+            "use-document" : true,
             
         },
         "pin" : {

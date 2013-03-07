@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+@class Application;
+
 @interface ViewDefinition : NSObject
 @property id view;
+@property Application *app;
 @end

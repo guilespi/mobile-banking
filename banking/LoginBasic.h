@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "LoginView.h"
 
 @interface LoginBasic : UIViewController<UIPickerViewDelegate, UITextFieldDelegate> {
     long _borderWidth, _textFieldHeight, _fieldInterleave;
 }
+@property LoginView *definition;
+
+- (LoginBasic*)initWithDef:(LoginView*)definition;
 
 @end

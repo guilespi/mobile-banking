@@ -9,6 +9,7 @@
 #import "SplashViewController.h"
 #import "SplashScreen.h"
 #import "UIColor+colorFromHexString.h"
+#import "Application.h"
 
 @interface SplashViewController ()
 
@@ -38,9 +39,9 @@
     long viewHeight = self.view.frame.size.height;
     
     //place background image, takes the complete view size as frame size
-    if (_definition.background) {
+    if (_definition.app.background) {
         UIImageView *imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-        [imageView setImage:[UIImage imageNamed:_definition.background]];
+        [imageView setImage:[UIImage imageNamed:_definition.app.background]];
         [self.view addSubview:imageView];
     }
     //place logo screen centered
@@ -54,18 +55,18 @@
     UILabel *upperLabel, *lowerLabel;
     
     upperLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, viewSize, 15.0)];
-    [upperLabel setFont:[UIFont fontWithName:_definition.fontName size:14]];
+    [upperLabel setFont:[UIFont fontWithName:_definition.fontName size:8]];
     upperLabel.textAlignment = NSTextAlignmentCenter;
-    upperLabel.textColor = [UIColor colorFromHexString:_definition.textColor];
+    upperLabel.textColor = _definition.app.theme.fontColor1;
     upperLabel.backgroundColor = [UIColor clearColor];
     upperLabel.text = _definition.upperText;
-    [upperLabel setCenter:CGPointMake( viewSize / 2, viewHeight * 0.88)];
+    [upperLabel setCenter:CGPointMake( viewSize / 2, viewHeight * 0.90)];
     [self.view addSubview:upperLabel];
     
     lowerLabel = [[UILabel alloc] initWithFrame:CGRectMake(0.0, 0.0, viewSize, 15.0)];
-    [lowerLabel setFont:[UIFont fontWithName:_definition.fontName size:20]];
+    [lowerLabel setFont:[UIFont fontWithName:_definition.fontName size:12]];
     lowerLabel.textAlignment = NSTextAlignmentCenter;
-    lowerLabel.textColor = [UIColor colorFromHexString:_definition.textColor];
+    lowerLabel.textColor = _definition.app.theme.fontColor1;
     lowerLabel.backgroundColor = [UIColor clearColor];
     lowerLabel.text = _definition.lowerText;
     [lowerLabel setCenter:CGPointMake( viewSize / 2, viewHeight * 0.94)];

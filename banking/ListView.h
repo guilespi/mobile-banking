@@ -19,6 +19,6 @@
 @property StandardTableView *view;
 @property TableCell *cell;
 
-- (ListView*) initWithDictionary:(NSDictionary*) d;
+- (ListView*) initWithDictionary:(NSDictionary*)d andApp:(Application*)app;
 
 @end

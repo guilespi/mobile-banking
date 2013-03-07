@@ -10,6 +10,7 @@
 #import "NavigationEntry.h"
 #import "ListView.h"
 #import "LoginView.h"
+#import "UIColor+colorFromHexString.h"
 
 @implementation AppParser
 
@@ -48,17 +49,32 @@
  */
 - (void)parseApp:(Application*)app withProperties:(NSDictionary*)d {
     app.defaultLanguage = [d objectForKey:@"default-language"] ? : @"spanish";
-    app.background = [d objectForKey:@"background"] ? : @"default-back.png?";
+    app.background = [d objectForKey:@"background"] ? : @"backgroundBrillo";
+    app.backgroundColor = [UIColor colorFromHexString:[d objectForKey:@"background-color"] ?: @"#02253e"];
+    //splash screen parsing
     NSDictionary *splashDefinition = [d objectForKey:@"splash-screen"];
     if (splashDefinition) {
         app.splashScreen = [[SplashScreen alloc] initWithDictionary:splashDefinition];
+        app.splashScreen.app = app;
     }
+    //color theme parsing
+    NSDictionary *themeDefinition = [d objectForKey:@"theme"];
+    app.theme = [[Theme alloc] init];
+    if (!themeDefinition || ![themeDefinition isKindOfClass:[NSDictionary class]]) {
+        themeDefinition = [[NSDictionary alloc] init];
+    }
+    app.theme.color1 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color1"] ?: @"#043254"];
+    app.theme.color2 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color2"] ?: @"#f7f7f7" ];
+    app.theme.color3 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color3"] ?: @"#ffc600"];
+    app.theme.borderColor = [UIColor colorFromHexString:[themeDefinition objectForKey:@"border-color"] ?: @"#9a9a9a"];
+    app.theme.fontColor1 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color1"] ?: @"#ffffff"];
+    app.theme.fontColor2 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color2"] ?: @"#043254"];
 }
 
 /*  Parse login attributes
  */
 - (void)parseLogin:(Application*)app withProperties:(NSDictionary*)d {
-    LoginView *login = [[LoginView alloc] initWithDictionary:d];
+    LoginView *login = [[LoginView alloc] initWithDictionary:d andApp:app];
     [app.views setObject:login forKey: @"login"];
 }
 
@@ -100,7 +116,7 @@
     if ([app.views objectForKey:listName]) {
         [NSException raise:@"Invalid definition" format:@"Object with key %@ already exists when creating ListView", listName];
     }
-    ListView *list = [[ListView alloc] initWithDictionary:d];
+    ListView *list = [[ListView alloc] initWithDictionary:d andApp:app];
     [app.views setObject:list forKey: [listName lowercaseString]];
 }
 
@@ -126,6 +142,10 @@
                                [^(NSString * name, NSDictionary *d) { [self parseNavigation:app withNavigation:d]; } copy], @"navigation",
                                [^(NSString * name, NSDictionary *d) { [self parseListView:app name:name withList:d]; } copy], @"list",
                                nil];
+    
+    //force app parsing first since all views needed it as dependency
+    CaseBlock c = [appFabric objectForKey:@"app"];
+    c(@"app",[appDictionary objectForKey:@"App"]);
     
     //Each dictionary key can by a single name like "App" or a composed
     //name type:name like List:Movements, iteration matches to decide which builtin object to build

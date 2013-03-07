@@ -73,6 +73,10 @@
 		C6BD0C8916E8117E00948985 /* logoHeaderAzul.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8316E8117E00948985 /* logoHeaderAzul.png */; };
 		C6BD0C8A16E8117E00948985 /* logoHeaderAzul@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */; };
 		C6BD0C8D16E81EFF00948985 /* UIImage+imageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C8C16E81EFF00948985 /* UIImage+imageFromColor.m */; };
+		C6BD0C9016E8D99B00948985 /* Theme.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C8F16E8D99A00948985 /* Theme.m */; };
+		C6BD0C9316E8DE4900948985 /* DIN TTF_OTF in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9216E8DE4900948985 /* DIN TTF_OTF */; };
+		C6BD0C9616E8F12400948985 /* bannerLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9416E8F12400948985 /* bannerLogin.png */; };
+		C6BD0C9716E8F12400948985 /* bannerLogin@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9516E8F12400948985 /* bannerLogin@x2.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +183,11 @@
 		C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoHeaderAzul@x2.png"; sourceTree = "<group>"; };
 		C6BD0C8B16E81EFF00948985 /* UIImage+imageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageFromColor.h"; sourceTree = "<group>"; };
 		C6BD0C8C16E81EFF00948985 /* UIImage+imageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageFromColor.m"; sourceTree = "<group>"; };
+		C6BD0C8E16E8D99A00948985 /* Theme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Theme.h; sourceTree = "<group>"; };
+		C6BD0C8F16E8D99A00948985 /* Theme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Theme.m; sourceTree = "<group>"; };
+		C6BD0C9216E8DE4900948985 /* DIN TTF_OTF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "DIN TTF_OTF"; sourceTree = "<group>"; };
+		C6BD0C9416E8F12400948985 /* bannerLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerLogin.png; sourceTree = "<group>"; };
+		C6BD0C9516E8F12400948985 /* bannerLogin@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bannerLogin@x2.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,6 +269,7 @@
 		C60D73ED16D7E814004F5950 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD0C9116E8DE3100948985 /* fonts */,
 				C60D74EE16DCF2EA004F5950 /* Settings.bundle */,
 				C60D744016DA86F8004F5950 /* images */,
 				C60D741F16D7EA79004F5950 /* definitions */,
@@ -338,6 +348,8 @@
 				C6BD0C7616E800B600948985 /* LoginView.m */,
 				C6BD0C7B16E80BB700948985 /* ViewDefinition.h */,
 				C6BD0C7C16E80BB700948985 /* ViewDefinition.m */,
+				C6BD0C8E16E8D99A00948985 /* Theme.h */,
+				C6BD0C8F16E8D99A00948985 /* Theme.m */,
 			);
 			name = Definitions;
 			sourceTree = "<group>";
@@ -402,6 +414,8 @@
 		C6BD0C7E16E8116C00948985 /* login */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD0C9416E8F12400948985 /* bannerLogin.png */,
+				C6BD0C9516E8F12400948985 /* bannerLogin@x2.png */,
 				C6BD0C7F16E8117E00948985 /* arrow.png */,
 				C6BD0C8016E8117E00948985 /* arrow@x2.png */,
 				C6BD0C8116E8117E00948985 /* arrowDropDown.png */,
@@ -410,6 +424,14 @@
 				C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */,
 			);
 			name = login;
+			sourceTree = "<group>";
+		};
+		C6BD0C9116E8DE3100948985 /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				C6BD0C9216E8DE4900948985 /* DIN TTF_OTF */,
+			);
+			name = fonts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -513,6 +535,9 @@
 				C6BD0C8816E8117E00948985 /* arrowDropDown@x2.png in Resources */,
 				C6BD0C8916E8117E00948985 /* logoHeaderAzul.png in Resources */,
 				C6BD0C8A16E8117E00948985 /* logoHeaderAzul@x2.png in Resources */,
+				C6BD0C9316E8DE4900948985 /* DIN TTF_OTF in Resources */,
+				C6BD0C9616E8F12400948985 /* bannerLogin.png in Resources */,
+				C6BD0C9716E8F12400948985 /* bannerLogin@x2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -582,6 +607,7 @@
 				C6BD0C7A16E8013500948985 /* LoginPIN.m in Sources */,
 				C6BD0C7D16E80BB800948985 /* ViewDefinition.m in Sources */,
 				C6BD0C8D16E81EFF00948985 /* UIImage+imageFromColor.m in Sources */,
+				C6BD0C9016E8D99B00948985 /* Theme.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -11,8 +11,9 @@
 
 @implementation ListView
 
-- (ListView*) initWithDictionary:(NSDictionary*) d {
+- (ListView*) initWithDictionary:(NSDictionary*)d andApp:(Application *)app{
     self = [super init];
+    self.app = app;
     _groupBy = [d objectForKey:@"group-by"] ? : @"";
     _sortBy = [d objectForKey:@"sort-by"] ? : @"";
     _dataSource = [API createAPI:[d objectForKey:@"api"]];

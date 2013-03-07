@@ -1,18 +1,23 @@
 "App" : {
   "default-language" : "spanish",
-    "background" : "#02253e",
-    "theme" : "light",
-    "auth" : {
-        "type" : "cookies",
-        "cookie-name" : "tatita",
-        "cookie-val" : "field-cook"
-    },
-    "splash-screen": {
-        "background" : "backgroundBrillo",
-        "logo": "logoSplash",
-        "upper-text" : "By",
-        "lower-text" : "Infocorp",
-        "text-color" : "#ffffff"
-    }
+  "background-color" : "#02253e",
+  "background" : "backgroundBrillo",
+  "theme" : {
+    "color1" : "#043254",
+    "color2" : "#f7f7f7",
+    "color3" : "#ffc600",
+    "fontColor" : "#ffffff"
+  },
+  "auth" : {
+    "type" : "cookies",
+    "cookie-name" : "tatita",
+    "cookie-val" : "field-cook"
+  },
+  "splash-screen": {
+    "logo": "logoSplash",
+    "upper-text" : "BY",
+    "lower-text" : "Infocorp",
+    "text-color" : "#ffffff"
+  }
 }
 

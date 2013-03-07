@@ -47,6 +47,7 @@
     }
     UITabBarController * tabBar = [[UITabBarController alloc] init];
     tabBar.viewControllers = [views copy];
+    [[UITabBar appearance] setSelectedImageTintColor:app.theme.color3];
     return tabBar;
 }
 

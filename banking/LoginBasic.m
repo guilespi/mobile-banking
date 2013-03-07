@@ -10,6 +10,7 @@
 #import "LoginBasic.h"
 #import "UIColor+colorFromHexString.h"
 #import "UIImage+imageFromColor.h"
+#import "Application.h"
 
 @interface LoginBasic ()
 
@@ -28,7 +29,7 @@
 }
 
 /*
- Triggered when te user presses the Login button
+ Triggered when the user presses the Login button
  */
 -(void)onLogin:(id)sender {
     
@@ -52,7 +53,7 @@
 - (void)addRoundedCorners:(CALayer*)layer {
     layer.cornerRadius = 3.0f;
     layer.masksToBounds = YES;
-    layer.borderColor = [UIColor colorFromHexString:@"#f7f7f7"].CGColor;
+    layer.borderColor = _definition.app.theme.borderColor.CGColor;
     layer.borderWidth = 1;
 }
 
@@ -66,9 +67,10 @@
                                                                           _fieldInterleave * position + _textFieldHeight * (position - 1),
                                                                           viewWidth -  _borderWidth * 2 ,
                                                                           _textFieldHeight)];
-    //TODO set placeholder font
     txtField.placeholder = placeHolderText;
-    txtField.backgroundColor = [UIColor whiteColor];
+    txtField.font = [UIFont fontWithName:@"DIN-Regular" size:17];
+    txtField.textColor = _definition.app.theme.fontColor2;
+    txtField.backgroundColor = _definition.app.theme.color2;
     txtField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
     [self addRoundedCorners:txtField.layer];
     //set padding using a dummy view on the left
@@ -84,6 +86,12 @@
     if (self) {
         
         //TODO: add standard app background stuff
+        //place background image, takes the complete view size as frame size
+        if (_definition.app.background) {
+            UIImageView *imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
+            [imageView setImage:[UIImage imageNamed:_definition.app.background]];
+            [self.view addSubview:imageView];
+        }
         
         //TODO: add header
         
@@ -97,11 +105,10 @@
         //interleave was 40px
         _fieldInterleave = viewHeight * 0.0416667;
         
-        //TODO:translation of the default placeholders
+        //TODO:translation of the default placeholders and labels
         
         int fieldPosition = 0;
-        
-        if (true) {
+        if (_definition.useDocumentType) {
             //create the document type combo-box
             UITextField *txtDocument = [self createTextField:@"Tipo de Documento" inPosition:++fieldPosition];
             txtDocument.delegate = self;
@@ -116,7 +123,8 @@
         }
         
         //create user text field
-        UITextField *txtUser = [self createTextField:@"Usuario" inPosition:++fieldPosition];
+        NSString *userPlaceHolder = _definition.useDocumentType ? @"Documento" : @"Usuario";
+        UITextField *txtUser = [self createTextField:userPlaceHolder inPosition:++fieldPosition];
         [self.view addSubview: txtUser];
 
         //create password text field
@@ -128,12 +136,12 @@
         UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
         //TODO read colors from somewhere
-        loginButton.titleLabel.font = [UIFont systemFontOfSize:14];
+        loginButton.titleLabel.font = [UIFont fontWithName:@"DIN-Regular" size:17];
         [loginButton setTitle:@"Login" forState:UIControlStateNormal];
-        [loginButton setTitleColor:[UIColor colorFromHexString:@"#043254"] forState:UIControlStateNormal];
+        [loginButton setTitleColor:_definition.app.theme.color1 forState:UIControlStateNormal];
 
         loginButton.titleLabel.textAlignment = NSTextAlignmentCenter;
-        [loginButton setBackgroundImage:[UIImage imageFromColor:[UIColor colorFromHexString:@"#FFC600"]] forState:UIControlStateNormal];
+        [loginButton setBackgroundImage:[UIImage imageFromColor:_definition.app.theme.color3] forState:UIControlStateNormal];
 
         [loginButton addTarget:self action:@selector(onLogin:) forControlEvents:UIControlEventTouchUpInside];
         long loginVerticalPosition = _fieldInterleave * (fieldPosition + 1) + _textFieldHeight * fieldPosition;
@@ -151,14 +159,21 @@
                                                                                  viewWidth / 2,
                                                                                  _textFieldHeight)];
         forgotPasswordLabel.text = @"Olvidó su contraseña?";
-        forgotPasswordLabel.textColor = [UIColor whiteColor];
+        forgotPasswordLabel.textColor = _definition.app.theme.fontColor1;
         forgotPasswordLabel.backgroundColor = [UIColor clearColor];
-        forgotPasswordLabel.font = [UIFont systemFontOfSize:14];
+        forgotPasswordLabel.font = [UIFont fontWithName:@"DIN-Regular" size:14];
         [self.view addSubview:forgotPasswordLabel];
         
         //banner
         long bannerVerticalPosition = loginVerticalPosition + _textFieldHeight + _fieldInterleave;
         long bannerHeight = viewHeight * 0.15625;//150px in the original design
+        UIImageView *bannerView = [[UIImageView alloc] initWithFrame:CGRectMake(_borderWidth,
+                                                                                bannerVerticalPosition,
+                                                                                viewWidth - _borderWidth * 2,
+                                                                                bannerHeight)];
+        //TODO: get the banner image from somewhere reasonable
+        [bannerView setImage:[UIImage imageNamed:@"bannerLogin"]];
+        [self.view addSubview:bannerView];
         
         //disclaimer label built using a UITextView since multiline display is needed
         long disclaimerTopPosition = bannerVerticalPosition + bannerHeight + _fieldInterleave / 2;
@@ -166,15 +181,21 @@
                                                                              disclaimerTopPosition,
                                                                              viewWidth - 2 * _borderWidth,
                                                                              _textFieldHeight * 2)];
-        disclaimerLabel.text = @"Copyright 2013 - Infocorp Todos los derechos reservados -\nLorem ipsum dolor sit amet. consectetur adipiscing";
-        disclaimerLabel.textColor = [UIColor whiteColor];
+        disclaimerLabel.text = _definition.disclaimer;
+        disclaimerLabel.textColor = _definition.app.theme.fontColor1;
         disclaimerLabel.backgroundColor = [UIColor clearColor];
-        disclaimerLabel.font = [UIFont systemFontOfSize:10];
+        disclaimerLabel.font = [UIFont fontWithName:@"DIN-Regular" size:10];
         disclaimerLabel.userInteractionEnabled = NO;
         [self.view addSubview:disclaimerLabel];
         
         
     }
+    return self;
+}
+
+- (LoginBasic*)initWithDef:(LoginView*)definition {
+    _definition = definition;
+    self = [super init];
     return self;
 }
 

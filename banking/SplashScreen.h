@@ -8,11 +8,10 @@
 
 #import <Foundation/Foundation.h>
 #import "SplashViewController.h"
+#import "ViewDefinition.h"
 
-@interface SplashScreen : NSObject
+@interface SplashScreen : ViewDefinition
 
-@property SplashViewController *view;
-@property NSString *background;
 @property NSString *logo;
 @property NSString *upperText;
 @property NSString *lowerText;

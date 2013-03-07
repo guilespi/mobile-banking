@@ -22,10 +22,13 @@
  Triggered when the user presses the dropdown Document Type selector
  */
 - (void)onSelectDocument:(id)sender {
-    UIPickerView *myPickerView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
-    myPickerView.delegate = self;
-    myPickerView.showsSelectionIndicator = YES;
-    [self.view addSubview:myPickerView];
+    if (!_documentTypes) {
+        return;
+    }
+    _documentPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
+    _documentPicker.delegate = self;
+    _documentPicker.showsSelectionIndicator = YES;
+    [self.view addSubview:_documentPicker];
 }
 
 /*
@@ -36,14 +39,28 @@
 }
 
 /*
-    The only field using the UITextFieldDelegate protocol is the Document Selector UITextField
-    which is NOT editable. 
+    The only field returning NO here in the UITextFieldDelegate protocol is the 
+    Document Selector UITextField which is NOT editable since it's simulating a combo.
     Since there is no "editable" property for UITextField this is the only way to disable the field
     without disabling the drop-down selector
  */
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField
 {
-    return NO;
+    if (textField == _txtDocumentType) {
+        return NO;
+    }
+    if (_documentPicker) {
+        _documentPicker.hidden = true;
+    }
+    return YES;
+}
+
+/*
+    This is in order to close the keyboard when the return key is pressed
+ */
+-(BOOL) textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 /*
@@ -77,6 +94,7 @@
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _borderWidth / 2, _textFieldHeight)];
     txtField.leftView = paddingView;
     txtField.leftViewMode = UITextFieldViewModeAlways;
+    txtField.delegate = self;
     return txtField;
 }
 
@@ -110,27 +128,39 @@
         int fieldPosition = 0;
         if (_definition.useDocumentType) {
             //create the document type combo-box
-            UITextField *txtDocument = [self createTextField:@"Tipo de Documento" inPosition:++fieldPosition];
-            txtDocument.delegate = self;
+            _txtDocumentType = [self createTextField:@"Tipo de Documento" inPosition:++fieldPosition];
             //create the arrow dropdown selector
             UIButton *dropDownButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
             [dropDownButton addTarget:self action:@selector(onSelectDocument:) forControlEvents:UIControlEventTouchUpInside];
-            dropDownButton.frame = CGRectMake(txtDocument.frame.size.width - _textFieldHeight, 0.0, _textFieldHeight, _textFieldHeight);
+            dropDownButton.frame = CGRectMake(_txtDocumentType.frame.size.width - _textFieldHeight, 0.0, _textFieldHeight, _textFieldHeight);
             [dropDownButton setBackgroundImage:[UIImage imageNamed: @"arrowDropDown"] forState:UIControlStateNormal];
-            [txtDocument addSubview: dropDownButton];
-            [txtDocument sendSubviewToBack: dropDownButton];
-            [self.view addSubview: txtDocument];
+            [_txtDocumentType addSubview: dropDownButton];
+            [_txtDocumentType sendSubviewToBack: dropDownButton];
+            [self.view addSubview: _txtDocumentType];
+            
+            //load types
+            API* api = _definition.documentAPI;
+            if (!api) {
+                [NSException raise:@"Invalid Login" format:@"Unable to create login screen with document type without an API"];
+            }
+            [api execute:nil
+               onSuccess:^(NSArray* response) {
+                   _documentTypes = response;
+               }
+               onError:^(NSError* error, NSString *response) {
+                
+            }];
         }
         
         //create user text field
         NSString *userPlaceHolder = _definition.useDocumentType ? @"Documento" : @"Usuario";
-        UITextField *txtUser = [self createTextField:userPlaceHolder inPosition:++fieldPosition];
-        [self.view addSubview: txtUser];
+        _txtUser = [self createTextField:userPlaceHolder inPosition:++fieldPosition];
+        [self.view addSubview: _txtUser];
 
         //create password text field
-        UITextField *txtPassword = [self createTextField:@"Contraseña" inPosition:++fieldPosition];
-        txtPassword.secureTextEntry = YES;
-        [self.view addSubview: txtPassword];
+        _txtPassword = [self createTextField:@"Contraseña" inPosition:++fieldPosition];
+        _txtPassword.secureTextEntry = YES;
+        [self.view addSubview: _txtPassword];
         
         //create Login button
         UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
@@ -188,7 +218,6 @@
         disclaimerLabel.userInteractionEnabled = NO;
         [self.view addSubview:disclaimerLabel];
         
-        
     }
     return self;
 }
@@ -217,6 +246,14 @@
  */
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
+    _documentPicker.hidden = true;
+    if (row == 0) {
+        //teoretically this is not possible since this row cannot be selected
+        return;
+    }
+    NSDictionary *data = _documentTypes[row - 1];
+    NSString *text = [data objectForKey:@"description"];
+    [_txtDocumentType setText:text];
 }
 
 
@@ -225,9 +262,7 @@
  This function is part of the UIPickerViewDelegate protocol and only one picker & component is present
  */
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component {
-    NSUInteger numRows = 5;
-    
-    return numRows;
+    return [_documentTypes count] + 1;
 }
 
 /* 
@@ -239,10 +274,11 @@
 
 // tell the picker the title for a given component
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
-    NSString *title;
-    title = [@"" stringByAppendingFormat:@"%d",row];
-    
-    return title;
+    if (row == 0) {
+        return @"";
+    }
+    NSDictionary *data = _documentTypes[row - 1];
+    return [data objectForKey:@"description"];
 }
 
 // tell the picker the width of each row for a given component

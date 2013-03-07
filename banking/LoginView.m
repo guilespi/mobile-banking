@@ -25,6 +25,9 @@
         [NSException raise:@"Invalid definition" format:@"Login must have basic type configuration"];
     }
     _useDocumentType = [basicDefinition objectForKey:@"use-document"] ? [[basicDefinition objectForKey:@"use-document"] boolValue] : false;
+    if (_useDocumentType) {
+        _documentAPI = [API createAPI:[basicDefinition objectForKey:@"documents-api"]];
+    }
     LoginBasic* basic = [[LoginBasic alloc] initWithDef:self];
     self.view = [[UINavigationController alloc] initWithRootViewController:basic];
     return self;

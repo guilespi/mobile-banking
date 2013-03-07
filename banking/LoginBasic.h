@@ -11,7 +11,11 @@
 
 @interface LoginBasic : UIViewController<UIPickerViewDelegate, UITextFieldDelegate> {
     long _borderWidth, _textFieldHeight, _fieldInterleave;
+    UIPickerView *_documentPicker;
+    NSArray *_documentTypes;
+    UITextField *_txtDocumentType, *_txtUser, *_txtPassword;
 }
+
 @property LoginView *definition;
 
 - (LoginBasic*)initWithDef:(LoginView*)definition;

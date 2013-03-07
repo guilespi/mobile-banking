@@ -4,7 +4,7 @@
     "entries": {
         "basic" : {
             "use-document" : true,
-            
+            "documents-api" : "http://localhost:8000/login/documents"
         },
         "pin" : {
 

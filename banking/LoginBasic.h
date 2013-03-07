@@ -14,6 +14,7 @@
     UIPickerView *_documentPicker;
     NSArray *_documentTypes;
     UITextField *_txtDocumentType, *_txtUser, *_txtPassword;
+    UIView *_headerView;
 }
 
 @property LoginView *definition;

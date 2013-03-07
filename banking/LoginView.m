@@ -30,6 +30,8 @@
     }
     LoginBasic* basic = [[LoginBasic alloc] initWithDef:self];
     self.view = [[UINavigationController alloc] initWithRootViewController:basic];
+    //navigation between login screens is NOT done with the navigation bar, so hide it
+    ((UINavigationController*)self.view).navigationBarHidden = YES;
     return self;
 }
 

@@ -2,6 +2,8 @@
   "default-language" : "spanish",
   "background-color" : "#02253e",
   "background" : "backgroundBrillo",
+  "logo": "logoSplash",
+  "inverted-logo" : "logoHeaderAzul",
   "theme" : {
     "color1" : "#043254",
     "color2" : "#f7f7f7",
@@ -14,7 +16,6 @@
     "cookie-val" : "field-cook"
   },
   "splash-screen": {
-    "logo": "logoSplash",
     "upper-text" : "BY",
     "lower-text" : "Infocorp",
     "text-color" : "#ffffff"

@@ -79,9 +79,9 @@
  */
 - (UITextField*)createTextField:(NSString*)placeHolderText inPosition:(int)position {
     long viewWidth = self.view.frame.size.width;
-    //TODO:height start position should consider header height
+    long headerHeight = _headerView.frame.size.height;
     UITextField *txtField = [[UITextField alloc]initWithFrame: CGRectMake(_borderWidth,
-                                                                          _fieldInterleave * position + _textFieldHeight * (position - 1),
+                                                                          headerHeight + _fieldInterleave * position + _textFieldHeight * (position - 1),
                                                                           viewWidth -  _borderWidth * 2 ,
                                                                           _textFieldHeight)];
     txtField.placeholder = placeHolderText;
@@ -101,30 +101,37 @@
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    long viewWidth = self.view.frame.size.width;
+    long viewHeight = self.view.frame.size.height;
+    
+    //border width is 40px in the original design
+    _borderWidth = viewWidth * 0.0625;
+    //field height was 70px
+    _textFieldHeight = viewHeight * 0.0729167;
+    //interleave was 40px
+    _fieldInterleave = viewHeight * 0.0416667;
+    
     if (self) {
         
-        //TODO: add standard app background stuff
-        //place background image, takes the complete view size as frame size
-        if (_definition.app.background) {
-            UIImageView *imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-            [imageView setImage:[UIImage imageNamed:_definition.app.background]];
-            [self.view addSubview:imageView];
-        }
-        
-        //TODO: add header
-        
-        long viewWidth = self.view.frame.size.width;
-        long viewHeight = self.view.frame.size.height;
-        
-        //border width is 40px in the original design
-        _borderWidth = viewWidth * 0.0625;
-        //field height was 70px
-        _textFieldHeight = viewHeight * 0.0729167;
-        //interleave was 40px
-        _fieldInterleave = viewHeight * 0.0416667;
+        UIView *backgroundView = [_definition.app createBackgroundView:self.view];
+        [self.view addSubview:backgroundView];
+        _headerView = [_definition.app createHeaderView:self.view];
+        //add welcome message to header
+        long separatorPosition = viewWidth * _definition.app.headerSeparatorPosition;
+        UILabel *welcomeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
+                                                                          0,
+                                                                          viewWidth - separatorPosition,
+                                                                          _textFieldHeight)];
+        [welcomeLabel setCenter:CGPointMake(separatorPosition + (viewWidth - separatorPosition) / 2, _headerView.frame.size.height / 2)];
+        welcomeLabel.text = @"Bienvenido";
+        welcomeLabel.textAlignment = NSTextAlignmentCenter;
+        welcomeLabel.textColor = _definition.app.theme.fontColor2;
+        welcomeLabel.backgroundColor = [UIColor clearColor];
+        welcomeLabel.font = [UIFont fontWithName:@"DIN-Regular" size:17];
+        [_headerView addSubview:welcomeLabel];
+        [self.view addSubview:_headerView];
         
         //TODO:translation of the default placeholders and labels
-        
         int fieldPosition = 0;
         if (_definition.useDocumentType) {
             //create the document type combo-box
@@ -174,7 +181,7 @@
         [loginButton setBackgroundImage:[UIImage imageFromColor:_definition.app.theme.color3] forState:UIControlStateNormal];
 
         [loginButton addTarget:self action:@selector(onLogin:) forControlEvents:UIControlEventTouchUpInside];
-        long loginVerticalPosition = _fieldInterleave * (fieldPosition + 1) + _textFieldHeight * fieldPosition;
+        long loginVerticalPosition = _headerView.frame.size.height + _fieldInterleave * (fieldPosition + 1) + _textFieldHeight * fieldPosition;
         loginButton.frame = CGRectMake(viewWidth / 2 + _borderWidth,
                                        loginVerticalPosition,
                                        viewWidth / 2 - _borderWidth * 2,

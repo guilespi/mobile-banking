@@ -12,7 +12,6 @@
 
 @interface SplashScreen : ViewDefinition
 
-@property NSString *logo;
 @property NSString *upperText;
 @property NSString *lowerText;
 @property NSString *textColor;

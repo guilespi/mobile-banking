@@ -51,6 +51,8 @@
     app.defaultLanguage = [d objectForKey:@"default-language"] ? : @"spanish";
     app.background = [d objectForKey:@"background"] ? : @"backgroundBrillo";
     app.backgroundColor = [UIColor colorFromHexString:[d objectForKey:@"background-color"] ?: @"#02253e"];
+    app.logo = [d objectForKey:@"logo"] ? : @"backgroundBrillo";
+    app.invertedLogo = [d objectForKey:@"inverted-logo"] ? : @"logoHeaderAzul";
     //splash screen parsing
     NSDictionary *splashDefinition = [d objectForKey:@"splash-screen"];
     if (splashDefinition) {

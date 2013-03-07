@@ -13,7 +13,6 @@
 -(SplashScreen*)initWithDictionary:(NSDictionary*)definition {
     self = [super init];
     
-    _logo = [definition objectForKey:@"logo"];
     _upperText = [definition objectForKey:@"upper-text"] ?: @"By";
     _lowerText = [definition objectForKey:@"lower-text"] ?: @"Infocorp";
     _textColor = [definition objectForKey:@"text-color"] ?: @"#ffffff";

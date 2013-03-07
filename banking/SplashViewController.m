@@ -45,8 +45,8 @@
         [self.view addSubview:imageView];
     }
     //place logo screen centered
-    if (_definition.logo) {
-        UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_definition.logo]];
+    if (_definition.app.logo) {
+        UIImageView *logoView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:_definition.app.logo]];
         [logoView setCenter:CGPointMake(viewSize / 2, viewHeight / 2)];
         [self.view addSubview:logoView];
     }

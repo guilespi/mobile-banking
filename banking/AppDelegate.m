@@ -29,12 +29,11 @@
         if (!entry.isEnabled) {
             continue;
         }
-        //TODO: subclass the view definitions and change this
-        ListView *listView = [app.views objectForKey:[entry.target lowercaseString]];
-        if (!listView) {
+        ViewDefinition *definition = [app.views objectForKey:[entry.target lowercaseString]];
+        if (!definition) {
             [NSException raise:@"Invalid definition" format:@"Navigation target %@ does not exist as a view", entry.target];
         }
-        UIViewController *view = listView.view;
+        UIViewController *view = definition.view;
         view.title = entry.text;
         NSURL* iconUrl = [NSURL URLWithString:entry.icon];
         if (iconUrl && iconUrl.scheme) {

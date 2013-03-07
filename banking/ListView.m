@@ -16,7 +16,7 @@
     _groupBy = [d objectForKey:@"group-by"] ? : @"";
     _sortBy = [d objectForKey:@"sort-by"] ? : @"";
     _dataSource = [API createAPI:[d objectForKey:@"api"]];
-    _view = [[StandardTableView alloc] initWithDefinition:self];
+    self.view = [[StandardTableView alloc] initWithDefinition:self];
     
     NSDictionary * cellType = [d objectForKey:@"cell"];
     if (!cellType || ![cellType isKindOfClass:[NSDictionary class]]) {

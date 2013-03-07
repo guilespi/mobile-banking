@@ -9,8 +9,9 @@
 #import <Foundation/Foundation.h>
 #import "StandardTableView.h"
 #import "TableCell.h"
+#import "ViewDefinition.h"
 
-@interface ListView : NSObject
+@interface ListView : ViewDefinition
 
 @property id dataSource;
 @property NSString* groupBy;

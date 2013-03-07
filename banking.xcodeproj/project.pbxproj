@@ -62,6 +62,17 @@
 		C689ABB016DFFDA10081AD94 /* logoSplash.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAC16DFFDA10081AD94 /* logoSplash.png */; };
 		C689ABB116DFFDA10081AD94 /* logoSplash@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C689ABAD16DFFDA10081AD94 /* logoSplash@x2.png */; };
 		C6BD0C7116E7D1DD00948985 /* UIColor+colorFromHexString.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */; };
+		C6BD0C7416E7FC0F00948985 /* LoginBasic.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7316E7FC0F00948985 /* LoginBasic.m */; };
+		C6BD0C7716E800B700948985 /* LoginView.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7616E800B600948985 /* LoginView.m */; };
+		C6BD0C7A16E8013500948985 /* LoginPIN.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7916E8013500948985 /* LoginPIN.m */; };
+		C6BD0C7D16E80BB800948985 /* ViewDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C7C16E80BB700948985 /* ViewDefinition.m */; };
+		C6BD0C8516E8117E00948985 /* arrow.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C7F16E8117E00948985 /* arrow.png */; };
+		C6BD0C8616E8117E00948985 /* arrow@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8016E8117E00948985 /* arrow@x2.png */; };
+		C6BD0C8716E8117E00948985 /* arrowDropDown.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8116E8117E00948985 /* arrowDropDown.png */; };
+		C6BD0C8816E8117E00948985 /* arrowDropDown@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8216E8117E00948985 /* arrowDropDown@x2.png */; };
+		C6BD0C8916E8117E00948985 /* logoHeaderAzul.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8316E8117E00948985 /* logoHeaderAzul.png */; };
+		C6BD0C8A16E8117E00948985 /* logoHeaderAzul@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */; };
+		C6BD0C8D16E81EFF00948985 /* UIImage+imageFromColor.m in Sources */ = {isa = PBXBuildFile; fileRef = C6BD0C8C16E81EFF00948985 /* UIImage+imageFromColor.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -152,6 +163,22 @@
 		C689ABAD16DFFDA10081AD94 /* logoSplash@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoSplash@x2.png"; sourceTree = "<group>"; };
 		C6BD0C6F16E7D1DD00948985 /* UIColor+colorFromHexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+colorFromHexString.h"; sourceTree = "<group>"; };
 		C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+colorFromHexString.m"; sourceTree = "<group>"; };
+		C6BD0C7216E7FC0F00948985 /* LoginBasic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginBasic.h; sourceTree = "<group>"; };
+		C6BD0C7316E7FC0F00948985 /* LoginBasic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginBasic.m; sourceTree = "<group>"; };
+		C6BD0C7516E800B600948985 /* LoginView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginView.h; sourceTree = "<group>"; };
+		C6BD0C7616E800B600948985 /* LoginView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginView.m; sourceTree = "<group>"; };
+		C6BD0C7816E8013500948985 /* LoginPIN.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginPIN.h; sourceTree = "<group>"; };
+		C6BD0C7916E8013500948985 /* LoginPIN.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginPIN.m; sourceTree = "<group>"; };
+		C6BD0C7B16E80BB700948985 /* ViewDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewDefinition.h; sourceTree = "<group>"; };
+		C6BD0C7C16E80BB700948985 /* ViewDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewDefinition.m; sourceTree = "<group>"; };
+		C6BD0C7F16E8117E00948985 /* arrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrow.png; sourceTree = "<group>"; };
+		C6BD0C8016E8117E00948985 /* arrow@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrow@x2.png"; sourceTree = "<group>"; };
+		C6BD0C8116E8117E00948985 /* arrowDropDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrowDropDown.png; sourceTree = "<group>"; };
+		C6BD0C8216E8117E00948985 /* arrowDropDown@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "arrowDropDown@x2.png"; sourceTree = "<group>"; };
+		C6BD0C8316E8117E00948985 /* logoHeaderAzul.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logoHeaderAzul.png; sourceTree = "<group>"; };
+		C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logoHeaderAzul@x2.png"; sourceTree = "<group>"; };
+		C6BD0C8B16E81EFF00948985 /* UIImage+imageFromColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+imageFromColor.h"; sourceTree = "<group>"; };
+		C6BD0C8C16E81EFF00948985 /* UIImage+imageFromColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+imageFromColor.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -307,6 +334,10 @@
 				C689ABA116DFAEB30081AD94 /* TableCell.m */,
 				C689ABA316DFAFDA0081AD94 /* MoneyCell.h */,
 				C689ABA416DFAFDA0081AD94 /* MoneyCell.m */,
+				C6BD0C7516E800B600948985 /* LoginView.h */,
+				C6BD0C7616E800B600948985 /* LoginView.m */,
+				C6BD0C7B16E80BB700948985 /* ViewDefinition.h */,
+				C6BD0C7C16E80BB700948985 /* ViewDefinition.m */,
 			);
 			name = Definitions;
 			sourceTree = "<group>";
@@ -318,6 +349,10 @@
 				C60D743E16D96F67004F5950 /* StandardTableView.m */,
 				C689ABA616DFF6B50081AD94 /* SplashViewController.h */,
 				C689ABA716DFF6B50081AD94 /* SplashViewController.m */,
+				C6BD0C7216E7FC0F00948985 /* LoginBasic.h */,
+				C6BD0C7316E7FC0F00948985 /* LoginBasic.m */,
+				C6BD0C7816E8013500948985 /* LoginPIN.h */,
+				C6BD0C7916E8013500948985 /* LoginPIN.m */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -325,6 +360,7 @@
 		C60D744016DA86F8004F5950 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				C6BD0C7E16E8116C00948985 /* login */,
 				C689ABA916DFFD830081AD94 /* splash */,
 				C60D745516DA8DC6004F5950 /* info.png */,
 				C60D745316DA8DBE004F5950 /* key.png */,
@@ -357,8 +393,23 @@
 			children = (
 				C6BD0C6F16E7D1DD00948985 /* UIColor+colorFromHexString.h */,
 				C6BD0C7016E7D1DD00948985 /* UIColor+colorFromHexString.m */,
+				C6BD0C8B16E81EFF00948985 /* UIImage+imageFromColor.h */,
+				C6BD0C8C16E81EFF00948985 /* UIImage+imageFromColor.m */,
 			);
 			name = Utils;
+			sourceTree = "<group>";
+		};
+		C6BD0C7E16E8116C00948985 /* login */ = {
+			isa = PBXGroup;
+			children = (
+				C6BD0C7F16E8117E00948985 /* arrow.png */,
+				C6BD0C8016E8117E00948985 /* arrow@x2.png */,
+				C6BD0C8116E8117E00948985 /* arrowDropDown.png */,
+				C6BD0C8216E8117E00948985 /* arrowDropDown@x2.png */,
+				C6BD0C8316E8117E00948985 /* logoHeaderAzul.png */,
+				C6BD0C8416E8117E00948985 /* logoHeaderAzul@x2.png */,
+			);
+			name = login;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -456,6 +507,12 @@
 				C689ABAF16DFFDA10081AD94 /* backgroundBrillo@x2.png in Resources */,
 				C689ABB016DFFDA10081AD94 /* logoSplash.png in Resources */,
 				C689ABB116DFFDA10081AD94 /* logoSplash@x2.png in Resources */,
+				C6BD0C8516E8117E00948985 /* arrow.png in Resources */,
+				C6BD0C8616E8117E00948985 /* arrow@x2.png in Resources */,
+				C6BD0C8716E8117E00948985 /* arrowDropDown.png in Resources */,
+				C6BD0C8816E8117E00948985 /* arrowDropDown@x2.png in Resources */,
+				C6BD0C8916E8117E00948985 /* logoHeaderAzul.png in Resources */,
+				C6BD0C8A16E8117E00948985 /* logoHeaderAzul@x2.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -520,6 +577,11 @@
 				C689ABA516DFAFDB0081AD94 /* MoneyCell.m in Sources */,
 				C689ABA816DFF6B50081AD94 /* SplashViewController.m in Sources */,
 				C6BD0C7116E7D1DD00948985 /* UIColor+colorFromHexString.m in Sources */,
+				C6BD0C7416E7FC0F00948985 /* LoginBasic.m in Sources */,
+				C6BD0C7716E800B700948985 /* LoginView.m in Sources */,
+				C6BD0C7A16E8013500948985 /* LoginPIN.m in Sources */,
+				C6BD0C7D16E80BB800948985 /* ViewDefinition.m in Sources */,
+				C6BD0C8D16E81EFF00948985 /* UIImage+imageFromColor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -4,8 +4,8 @@
             "text" : "Home",
             "icon" : "lock",
             "authenticated" : true,
-            "enabled" : false,
-            "target" : "List:Login"
+            "enabled" : true,
+            "target" : "Login"
         },
         "ubiquenos" : {
             "text" : "Ubiquenos",
@@ -17,7 +17,7 @@
         "posicion" : {
             "text" : "Posición",
             "icon" : "notepad",
-            "enabled": false,
+            "enabled": true,
             "target" : "List:Movements"
         }, 
         "contactenos" : {

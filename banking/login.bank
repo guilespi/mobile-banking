@@ -1,16 +1,15 @@
-"List:Login" : {
-    "order-by": "timestamp",
-    "group-by" : "day",
-    "api": "http://localhost:8000/newsfeed",
-    "cell": {
-        "style" : "money",
-        "fields": {
-            "title" : "f1",
-            "description" : "f2",
-            "money-total" : "f3",
-            "money-partial" : "f4"
+"Login" : {
+    "alternates" : ["pin"],
+    "entries": {
+        "basic" : {
+            "use-document" : false,
+            
+        },
+        "pin" : {
+
         }
-    }
+    },
+    "on-success" : "List:Movements"
 },
 
 "List:Movements" : {

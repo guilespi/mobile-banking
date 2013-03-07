@@ -9,6 +9,7 @@
 #import "AppParser.h"
 #import "NavigationEntry.h"
 #import "ListView.h"
+#import "LoginView.h"
 
 @implementation AppParser
 
@@ -53,6 +54,14 @@
         app.splashScreen = [[SplashScreen alloc] initWithDictionary:splashDefinition];
     }
 }
+
+/*  Parse login attributes
+ */
+- (void)parseLogin:(Application*)app withProperties:(NSDictionary*)d {
+    LoginView *login = [[LoginView alloc] initWithDictionary:d];
+    [app.views setObject:login forKey: @"login"];
+}
+
 
 /*  Parse the navigation dictionary and creates the corresponding array of
     NavigationEntry objects.
@@ -113,6 +122,7 @@
     
     NSDictionary *appFabric = [NSDictionary dictionaryWithObjectsAndKeys:
                                [^(NSString * name, NSDictionary *d) { [self parseApp:app withProperties:d]; } copy], @"app",
+                               [^(NSString * name, NSDictionary *d) { [self parseLogin:app withProperties:d]; } copy], @"login",
                                [^(NSString * name, NSDictionary *d) { [self parseNavigation:app withNavigation:d]; } copy], @"navigation",
                                [^(NSString * name, NSDictionary *d) { [self parseListView:app name:name withList:d]; } copy], @"list",
                                nil];

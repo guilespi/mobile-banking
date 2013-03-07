@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "383778061.731803"
+         timestampString = "384306542.188162"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "90"
-         endingLineNumber = "90"
+         startingLineNumber = "99"
+         endingLineNumber = "99"
          landmarkName = "-parseListView:name:withList:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -73,11 +73,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "383778061.731803"
+         timestampString = "384306542.188162"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "127"
-         endingLineNumber = "127"
+         startingLineNumber = "137"
+         endingLineNumber = "137"
          landmarkName = "-appFromDictionary:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -86,11 +86,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppDelegate.m"
-         timestampString = "383422035.950874"
+         timestampString = "384306397.800649"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "33"
-         endingLineNumber = "33"
+         startingLineNumber = "32"
+         endingLineNumber = "32"
          landmarkName = "-buildTabBarController:"
          landmarkType = "5">
       </FileBreakpoint>

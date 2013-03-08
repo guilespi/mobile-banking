@@ -104,12 +104,14 @@
     long viewWidth = self.view.frame.size.width;
     long viewHeight = self.view.frame.size.height;
     
-    //border width is 40px in the original design
+    //border width is 40px in the original design, 868px of user space
     _borderWidth = viewWidth * 0.0625;
     //field height was 70px
-    _textFieldHeight = viewHeight * 0.0729167;
+    _textFieldHeight = viewHeight * 0.0806452;
     //interleave was 40px
-    _fieldInterleave = viewHeight * 0.0416667;
+    _fieldInterleave = viewHeight * 0.0460829;
+    //150px in the original design
+    long bannerHeight = viewHeight * 0.1728111;
     
     if (self) {
         
@@ -172,7 +174,6 @@
         //create Login button
         UIButton *loginButton = [UIButton buttonWithType:UIButtonTypeRoundedRect];
         
-        //TODO read colors from somewhere
         loginButton.titleLabel.font = [UIFont fontWithName:@"DIN-Regular" size:17];
         [loginButton setTitle:@"Login" forState:UIControlStateNormal];
         [loginButton setTitleColor:_definition.app.theme.color1 forState:UIControlStateNormal];
@@ -198,12 +199,11 @@
         forgotPasswordLabel.text = @"Olvidó su contraseña?";
         forgotPasswordLabel.textColor = _definition.app.theme.fontColor1;
         forgotPasswordLabel.backgroundColor = [UIColor clearColor];
-        forgotPasswordLabel.font = [UIFont fontWithName:@"DIN-Regular" size:14];
+        forgotPasswordLabel.font = [UIFont fontWithName:@"DIN-Regular" size:12];
         [self.view addSubview:forgotPasswordLabel];
         
         //banner
         long bannerVerticalPosition = loginVerticalPosition + _textFieldHeight + _fieldInterleave;
-        long bannerHeight = viewHeight * 0.15625;//150px in the original design
         UIImageView *bannerView = [[UIImageView alloc] initWithFrame:CGRectMake(_borderWidth,
                                                                                 bannerVerticalPosition,
                                                                                 viewWidth - _borderWidth * 2,
@@ -213,7 +213,7 @@
         [self.view addSubview:bannerView];
         
         //disclaimer label built using a UITextView since multiline display is needed
-        long disclaimerTopPosition = bannerVerticalPosition + bannerHeight + _fieldInterleave / 2;
+        long disclaimerTopPosition = bannerVerticalPosition + bannerHeight + (_fieldInterleave / 8) * 0.8;
         UITextView *disclaimerLabel = [[UITextView alloc] initWithFrame:CGRectMake(_borderWidth,
                                                                              disclaimerTopPosition,
                                                                              viewWidth - 2 * _borderWidth,

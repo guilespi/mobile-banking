@@ -1,0 +1,50 @@
+"Position" : {
+    "api": "http://localhost:8000/products",
+    "type-field" : "product-type",
+    "cells": {
+        "tarjeta": {
+            "style" : "money",
+            "fields": {
+                "title" : "product-name",
+                "description" : "product-category",
+                "product-number" : "card-number",
+                "money-total" : "usd-debt",
+                "money-partial" : "uyp-debt"
+            }
+        },
+        "prestamo" : {
+            "style" : "loan",
+            "fields" : {
+                "title" : "product-name",
+                "detail" : "product-category",
+                "product-number" : "loan-id",
+                "money-total" : "loan-ammount",
+                "money-partial" : "paid-ammount",
+                "remaining" : "remaining-months",
+                "right-header" : "next-due-date"
+            }
+        },
+        "cuenta-corriente" : {
+            "style" : "money",
+            "fields" : {
+                "title" : "product-name",
+                "description" : "product-category",
+                "product-number" : "account-number",
+                "money-total" : "account-balance",
+                "money-partial" : ""
+            }
+        },
+        "plazo-fijo" : {
+            "style" : "loan",
+            "fields" : {
+                "title" : "product-name",
+                "detail" : "product-category",
+                "product-number" : "plazo-id",
+                "money-total" : "plazo-ammount",
+                "money-partial" : "due-date",
+                "right-header" : "plazo-tasa"
+            }
+
+        }
+    }
+}

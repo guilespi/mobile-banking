@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Theme.h"
 
 @interface TableCell : NSObject 
 
@@ -15,9 +16,9 @@
 @property NSString *identifier;
 
 //to be implemented by child classes
--(UITableViewCell*) buildCell;
+-(UITableViewCell*) buildCell:(UIView*)screen withTheme:(Theme*)theme forRow:(NSDictionary*)row;
 -(void)updateCell:(UITableViewCell*)cell withData:(NSDictionary*)row;
--(int)getCellHeightForRow:(NSDictionary*)row;
+-(int)getCellHeight:(UIView*)screen forRow:(NSDictionary*)row;
 
 +(TableCell*) createCell:(NSDictionary*)definition;
 

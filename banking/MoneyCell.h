@@ -12,6 +12,7 @@
 
 @property NSString *titleField;
 @property NSString *descriptionField;
+@property NSString *productNumberField;
 @property NSString *totalMoneyField;
 @property NSString *partialMoneyField;
 

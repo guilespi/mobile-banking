@@ -77,6 +77,10 @@
 		C6BD0C9316E8DE4900948985 /* DIN TTF_OTF in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9216E8DE4900948985 /* DIN TTF_OTF */; };
 		C6BD0C9616E8F12400948985 /* bannerLogin.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9416E8F12400948985 /* bannerLogin.png */; };
 		C6BD0C9716E8F12400948985 /* bannerLogin@x2.png in Resources */ = {isa = PBXBuildFile; fileRef = C6BD0C9516E8F12400948985 /* bannerLogin@x2.png */; };
+		C6FA82F016EA2B9C009FA85B /* position.bank in Resources */ = {isa = PBXBuildFile; fileRef = C6FA82EF16EA2B9C009FA85B /* position.bank */; };
+		C6FA82F616EA312A009FA85B /* ConsolidatedPosition.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA82F516EA312A009FA85B /* ConsolidatedPosition.m */; };
+		C6FA82F916EA4167009FA85B /* LoanCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C6FA82F816EA4166009FA85B /* LoanCell.m */; };
+		C6FA82FB16EA6B13009FA85B /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6FA82FA16EA6B12009FA85B /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -188,6 +192,12 @@
 		C6BD0C9216E8DE4900948985 /* DIN TTF_OTF */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "DIN TTF_OTF"; sourceTree = "<group>"; };
 		C6BD0C9416E8F12400948985 /* bannerLogin.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bannerLogin.png; sourceTree = "<group>"; };
 		C6BD0C9516E8F12400948985 /* bannerLogin@x2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bannerLogin@x2.png"; sourceTree = "<group>"; };
+		C6FA82EF16EA2B9C009FA85B /* position.bank */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = position.bank; sourceTree = "<group>"; };
+		C6FA82F416EA312A009FA85B /* ConsolidatedPosition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConsolidatedPosition.h; sourceTree = "<group>"; };
+		C6FA82F516EA312A009FA85B /* ConsolidatedPosition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ConsolidatedPosition.m; sourceTree = "<group>"; };
+		C6FA82F716EA4165009FA85B /* LoanCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoanCell.h; sourceTree = "<group>"; };
+		C6FA82F816EA4166009FA85B /* LoanCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoanCell.m; sourceTree = "<group>"; };
+		C6FA82FA16EA6B12009FA85B /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -195,6 +205,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C6FA82FB16EA6B13009FA85B /* QuartzCore.framework in Frameworks */,
 				C655428016DE4F850013D3EE /* libOCMock.a in Frameworks */,
 				C60D73E516D7E814004F5950 /* UIKit.framework in Frameworks */,
 				C60D73E716D7E814004F5950 /* Foundation.framework in Frameworks */,
@@ -221,6 +232,7 @@
 		C60D73D816D7E814004F5950 = {
 			isa = PBXGroup;
 			children = (
+				C6FA82FA16EA6B12009FA85B /* QuartzCore.framework */,
 				C60D73EC16D7E814004F5950 /* banking */,
 				C60D740E16D7E815004F5950 /* bankingTests */,
 				C60D73E316D7E814004F5950 /* Frameworks */,
@@ -317,6 +329,7 @@
 				C60D742016D7EAAD004F5950 /* app.bank */,
 				C60D742216D7EACC004F5950 /* navigation.bank */,
 				C60D742A16D80E03004F5950 /* login.bank */,
+				C6FA82EF16EA2B9C009FA85B /* position.bank */,
 			);
 			name = definitions;
 			sourceTree = "<group>";
@@ -350,6 +363,10 @@
 				C6BD0C7C16E80BB700948985 /* ViewDefinition.m */,
 				C6BD0C8E16E8D99A00948985 /* Theme.h */,
 				C6BD0C8F16E8D99A00948985 /* Theme.m */,
+				C6FA82F416EA312A009FA85B /* ConsolidatedPosition.h */,
+				C6FA82F516EA312A009FA85B /* ConsolidatedPosition.m */,
+				C6FA82F716EA4165009FA85B /* LoanCell.h */,
+				C6FA82F816EA4166009FA85B /* LoanCell.m */,
 			);
 			name = Definitions;
 			sourceTree = "<group>";
@@ -538,6 +555,7 @@
 				C6BD0C9316E8DE4900948985 /* DIN TTF_OTF in Resources */,
 				C6BD0C9616E8F12400948985 /* bannerLogin.png in Resources */,
 				C6BD0C9716E8F12400948985 /* bannerLogin@x2.png in Resources */,
+				C6FA82F016EA2B9C009FA85B /* position.bank in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -608,6 +626,8 @@
 				C6BD0C7D16E80BB800948985 /* ViewDefinition.m in Sources */,
 				C6BD0C8D16E81EFF00948985 /* UIImage+imageFromColor.m in Sources */,
 				C6BD0C9016E8D99B00948985 /* Theme.m in Sources */,
+				C6FA82F616EA312A009FA85B /* ConsolidatedPosition.m in Sources */,
+				C6FA82F916EA4167009FA85B /* LoanCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

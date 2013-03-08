@@ -11,13 +11,19 @@
 #import "TableCell.h"
 #import "ViewDefinition.h"
 
-@interface ListView : ViewDefinition
+@interface ListView : ViewDefinition {
+    TableCell *_cell;
+}
 
 @property id dataSource;
 @property NSString* groupBy;
 @property NSString* sortBy;
 @property StandardTableView *view;
-@property TableCell *cell;
+
+-(NSString*) cellIdentifierForRow:(NSDictionary*)row;
+-(UITableViewCell*) buildCell:(UIView*)screen forRow:(NSDictionary*)row ;
+-(void)updateCell:(UITableViewCell*)cell withData:(NSDictionary*)row;
+-(int)getCellHeight:(UIView*)screen forRow:(NSDictionary*)row;
 
 - (ListView*) initWithDictionary:(NSDictionary*)d andApp:(Application*)app;
 

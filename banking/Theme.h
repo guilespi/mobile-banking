@@ -20,4 +20,8 @@
 //fonts
 @property UIColor *fontColor1;
 @property UIColor *fontColor2;
+@property UIColor *fontColor3;
+//lines
+@property UIColor *dottedLineColor;
+
 @end

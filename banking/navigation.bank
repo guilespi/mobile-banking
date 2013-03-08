@@ -18,18 +18,18 @@
             "text" : "Posición",
             "icon" : "notepad",
             "enabled": true,
-            "target" : "List:Movements"
+            "target" : "Position"
         }, 
         "contactenos" : {
             "text": "Contáctenos",
             "icon": "email",
-            "enabled": true,
+            "enabled": false,
             "target": "List:Contact"
         },
         "pagos" : {
             "text": "Pagos",
             "icon": "calendar",
-            "enabled": true,
+            "enabled": false,
             "target": "List:Payments"
         },
         "novedades" : {

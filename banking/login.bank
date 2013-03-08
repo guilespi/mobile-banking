@@ -15,7 +15,7 @@
 
 "List:Movements" : {
     "key": "valiue",
-    "api":"https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=iphone",
+    "api":"http://localhost:8000/newsfeed",
     "cell": {
         "style" : "money",
         "fields": {
@@ -73,7 +73,7 @@
     "order-by" : "timestamp",
     "api": {
         "type":"REST",
-        "url": "https://ajax.googleapis.com/ajax/services/feed/find?v=1.0&q=uruguay"
+        "url": "http://localhost:8000/newsfeed"
     },
     "cell": {
         "style" : "money",

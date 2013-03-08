@@ -9,6 +9,7 @@
 #import "StandardTableView.h"
 #import "ListView.h"
 #import "RESTApi.h"
+#import "Application.h"
 
 #define kCustomRowCount     1
 
@@ -22,7 +23,56 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
+        long viewWidth = self.view.frame.size.width;
+        long viewHeight = self.view.frame.size.height;
+        long textFieldHeight = viewHeight * 0.0806452;
+        long borderWidth = viewWidth * 0.03125;
         
+        UIView *backgroundView = [_definition.app createBackgroundView:self.view];
+        //m_tableView.backgroundView = backgroundView;
+        [self.view addSubview:backgroundView];
+        
+        UIView *headerView = [_definition.app createHeaderView:self.view];
+        //add HOME message to header
+        long separatorPosition = viewWidth * _definition.app.headerSeparatorPosition;
+        UILabel *homeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0,
+                                                                          0,
+                                                                          viewWidth - separatorPosition,
+                                                                          textFieldHeight)];
+        [homeLabel setCenter:CGPointMake(separatorPosition + (viewWidth - separatorPosition) / 2, headerView.frame.size.height / 2)];
+        homeLabel.text = @"Inicio";
+        homeLabel.textAlignment = NSTextAlignmentCenter;
+        homeLabel.textColor = _definition.app.theme.fontColor2;
+        homeLabel.backgroundColor = [UIColor clearColor];
+        homeLabel.font = [UIFont fontWithName:@"DIN-Regular" size:17];
+        [headerView addSubview:homeLabel];
+        [self.view addSubview:headerView];
+        
+        long lastAccessViewPosition = headerView.frame.size.height;
+        //80px out of 868px
+        long lastAccessViewHeight = viewHeight * 0.0921659;
+        
+        //10px out of 868px
+        long tableInterleave = viewHeight * 0.0115207;
+        long tablePosition = lastAccessViewPosition + lastAccessViewHeight + tableInterleave * 2;
+        m_tableView = [[UITableView alloc]
+                       initWithFrame:CGRectMake(borderWidth,
+                                                tablePosition,
+                                                viewWidth - borderWidth * 2,
+                                                viewHeight - tablePosition)
+                       style:UITableViewStylePlain];
+        
+        m_tableView.backgroundColor = [UIColor clearColor];
+        m_tableView.opaque = NO;
+        [m_tableView setSeparatorColor:[UIColor clearColor]];
+        
+        m_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+        m_tableView.delegate = self;
+        m_tableView.dataSource = self;
+        [m_tableView reloadData];
+        
+        //self.view = m_tableView;
+        [self.view addSubview:m_tableView];
     }
     return self;
 }
@@ -33,19 +83,15 @@
     return self;
 }
 
-- (void)loadView
+- (void)viewDidLoad
 {
-    m_tableView = [[UITableView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame] style:UITableViewStylePlain];
-    m_imageView = [[UIImageView alloc] initWithFrame:[[UIScreen mainScreen] applicationFrame]];
-    m_imageView.image = [UIImage imageNamed:@"gradientBackground.png"];
-    
-    m_tableView.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    m_tableView.delegate = self;
-    m_tableView.dataSource = self;
-    [m_tableView reloadData];
-    
-    self.view = m_tableView;
-    m_tableView.backgroundView = m_imageView;
+    [super viewDidLoad];
+	
+}
+
+- (void)viewDidAppear:(BOOL)animated
+{
+	[super viewDidAppear:animated];
     
     if (!_definition) {
         [NSException raise:@"Invalid Table View" format:@"Unable to initialize Standard Table View without definition"];
@@ -64,14 +110,6 @@
          }];
 }
 
-
-- (void)viewDidLoad
-{
-    [super viewDidLoad];
-	// Do any additional setup after loading the view.
-}
-
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
@@ -89,7 +127,8 @@
     }
     
     if (m_data) {
-        return [_definition.cell getCellHeightForRow:m_data[indexPath.row]];
+        NSDictionary *row = m_data[indexPath.row];
+        return [_definition getCellHeight:self.view forRow:row];
     }
     return 44.0;
 }
@@ -114,12 +153,13 @@
     }
     
     //data is here, show it
-    NSString *cellIdentifier = _definition.cell.identifier;
+    NSDictionary *row = m_data[indexPath.row];
+    NSString *cellIdentifier = [_definition cellIdentifierForRow:row];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if (!cell) {
-        cell = [_definition.cell buildCell];
+        cell = [_definition buildCell:self.view forRow:row];
     }
-    [_definition.cell updateCell:cell withData:m_data[indexPath.row]];
+    [_definition updateCell:cell withData:row];
     return cell;
 }
 

@@ -8,6 +8,7 @@
 
 #import "TableCell.h"
 #import "MoneyCell.h"
+#import "LoanCell.h"
 
 @implementation TableCell
 
@@ -15,6 +16,9 @@
     NSDictionary *cellStyle = [d objectForKey:@"style"];
     if ([cellStyle isEqual: @"money"]) {
         return [[MoneyCell alloc] initWithDictionary:d];
+    }
+    if ([cellStyle isEqual: @"loan"]) {
+        return [[LoanCell alloc] initWithDictionary:d];
     }
     [NSException raise:@"Unknown cell style" format:@"Don't know how to build cell style %@", cellStyle];
     return nil; //makes the compiler happy

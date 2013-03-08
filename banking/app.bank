@@ -8,7 +8,10 @@
     "color1" : "#043254",
     "color2" : "#f7f7f7",
     "color3" : "#ffc600",
-    "fontColor" : "#ffffff"
+    "font-color1" : "#ffffff",
+    "font-color2" : "#043254",
+    "font-color3" : "#ffc600",
+    "dotted-line-color" : "#93a4b0"
   },
   "auth" : {
     "type" : "cookies",

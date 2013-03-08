@@ -10,6 +10,7 @@
 #import "NavigationEntry.h"
 #import "ListView.h"
 #import "LoginView.h"
+#import "ConsolidatedPosition.h"
 #import "UIColor+colorFromHexString.h"
 
 @implementation AppParser
@@ -71,6 +72,8 @@
     app.theme.borderColor = [UIColor colorFromHexString:[themeDefinition objectForKey:@"border-color"] ?: @"#9a9a9a"];
     app.theme.fontColor1 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color1"] ?: @"#ffffff"];
     app.theme.fontColor2 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color2"] ?: @"#043254"];
+    app.theme.fontColor3 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color3"] ?: @"#ffc600"];
+    app.theme.dottedLineColor = [UIColor colorFromHexString:[themeDefinition objectForKey:@"dotted-line-color"] ?: @"#93a4b0"];
 }
 
 /*  Parse login attributes
@@ -78,6 +81,13 @@
 - (void)parseLogin:(Application*)app withProperties:(NSDictionary*)d {
     LoginView *login = [[LoginView alloc] initWithDictionary:d andApp:app];
     [app.views setObject:login forKey: @"login"];
+}
+
+/*  Parse consolidated position
+ */
+- (void)parsePosition:(Application*)app withProperties:(NSDictionary*)d {
+    ConsolidatedPosition *position = [[ConsolidatedPosition alloc] initWithDictionary:d andApp:app];
+    [app.views setObject:position forKey: @"position"];
 }
 
 
@@ -142,6 +152,7 @@
                                [^(NSString * name, NSDictionary *d) { [self parseApp:app withProperties:d]; } copy], @"app",
                                [^(NSString * name, NSDictionary *d) { [self parseLogin:app withProperties:d]; } copy], @"login",
                                [^(NSString * name, NSDictionary *d) { [self parseNavigation:app withNavigation:d]; } copy], @"navigation",
+                               [^(NSString * name, NSDictionary *d) { [self parsePosition:app withProperties:d]; } copy], @"position",
                                [^(NSString * name, NSDictionary *d) { [self parseListView:app name:name withList:d]; } copy], @"list",
                                nil];
     
@@ -178,7 +189,7 @@
 - (Application*)parseApplication {
     //This should be ordered if some definition overrides previous ones
     NSArray *const builtinDefinitions = [[NSArray alloc] initWithObjects:
-                                         @"app", @"navigation", @"login", nil];
+                                         @"app", @"navigation", @"login", @"position", nil];
     
     NSDictionary * appDictionary = [[NSDictionary alloc] init];
     for (id fileName in builtinDefinitions) {

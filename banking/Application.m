@@ -27,8 +27,8 @@
 }
 
 -(UIView *)createHeaderView:(UIView *)screen {
-    //height in original design was 88px in a 960px screen
-    long headerHeight = screen.frame.size.height * 0.0916667;
+    //height in original design was 88px in a 960px screen (868 usable)
+    long headerHeight = screen.frame.size.height * 0.1013825;
     long headerWidth = screen.frame.size.width;
     UIView *header = [[UIView alloc] initWithFrame:CGRectMake(0,
                                                               0,
@@ -44,7 +44,7 @@
     [header addSubview:logoView];
     //create separator line
     UIView *lineView = [[UIView alloc] initWithFrame:CGRectMake(headerWidth * _headerSeparatorPosition, 0, 1, headerHeight)];
-    lineView.backgroundColor = _theme.borderColor;
+    lineView.backgroundColor = _theme.dottedLineColor;
     [header addSubview:lineView];
     return header;
 }

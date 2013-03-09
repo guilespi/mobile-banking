@@ -11,7 +11,9 @@
     "font-color1" : "#ffffff",
     "font-color2" : "#043254",
     "font-color3" : "#ffc600",
-    "dotted-line-color" : "#93a4b0"
+    "dotted-line-color" : "#93a4b0",
+    "header-opacity" : "0.1",
+    "table-cell-opacity" : "0.1"
   },
   "auth" : {
     "type" : "cookies",

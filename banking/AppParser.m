@@ -46,34 +46,10 @@
     return (NSDictionary *) [result mutableCopy];
 }
 
-/*  Parse app attributes, TODO: this should parse also authentication scheme
+/*  Parse app attributes
  */
 - (void)parseApp:(Application*)app withProperties:(NSDictionary*)d {
-    app.defaultLanguage = [d objectForKey:@"default-language"] ? : @"spanish";
-    app.background = [d objectForKey:@"background"] ? : @"backgroundBrillo";
-    app.backgroundColor = [UIColor colorFromHexString:[d objectForKey:@"background-color"] ?: @"#02253e"];
-    app.logo = [d objectForKey:@"logo"] ? : @"backgroundBrillo";
-    app.invertedLogo = [d objectForKey:@"inverted-logo"] ? : @"logoHeaderAzul";
-    //splash screen parsing
-    NSDictionary *splashDefinition = [d objectForKey:@"splash-screen"];
-    if (splashDefinition) {
-        app.splashScreen = [[SplashScreen alloc] initWithDictionary:splashDefinition];
-        app.splashScreen.app = app;
-    }
-    //color theme parsing
-    NSDictionary *themeDefinition = [d objectForKey:@"theme"];
-    app.theme = [[Theme alloc] init];
-    if (!themeDefinition || ![themeDefinition isKindOfClass:[NSDictionary class]]) {
-        themeDefinition = [[NSDictionary alloc] init];
-    }
-    app.theme.color1 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color1"] ?: @"#043254"];
-    app.theme.color2 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color2"] ?: @"#f7f7f7" ];
-    app.theme.color3 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"color3"] ?: @"#ffc600"];
-    app.theme.borderColor = [UIColor colorFromHexString:[themeDefinition objectForKey:@"border-color"] ?: @"#9a9a9a"];
-    app.theme.fontColor1 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color1"] ?: @"#ffffff"];
-    app.theme.fontColor2 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color2"] ?: @"#043254"];
-    app.theme.fontColor3 = [UIColor colorFromHexString:[themeDefinition objectForKey:@"font-color3"] ?: @"#ffc600"];
-    app.theme.dottedLineColor = [UIColor colorFromHexString:[themeDefinition objectForKey:@"dotted-line-color"] ?: @"#93a4b0"];
+    [app initFromDictionary:d];
 }
 
 /*  Parse login attributes

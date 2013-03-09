@@ -27,5 +27,6 @@
 -(void)setProperties:(NSDictionary*)props;
 -(UIView *)createHeaderView:(UIView *)screen;
 -(UIView *)createBackgroundView:(UIView*)parent;
+-(void)initFromDictionary:(NSDictionary *)d;
 
 @end

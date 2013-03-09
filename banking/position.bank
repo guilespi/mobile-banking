@@ -19,8 +19,8 @@
                 "detail" : "product-category",
                 "product-number" : "loan-id",
                 "money-total" : "loan-ammount",
-                "money-partial" : "paid-ammount",
-                "remaining" : "remaining-months",
+                "installment" : "paid-ammount",
+                "installment-month" : "remaining-ammount",
                 "right-header" : "next-due-date"
             }
         },
@@ -41,7 +41,7 @@
                 "detail" : "product-category",
                 "product-number" : "plazo-id",
                 "money-total" : "plazo-ammount",
-                "money-partial" : "due-date",
+                "installment" : "due-date",
                 "right-header" : "plazo-tasa"
             }
 

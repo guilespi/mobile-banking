@@ -12,9 +12,8 @@
 
 @interface StandardTableView : UIViewController <UITableViewDelegate, UITableViewDataSource>
 {
-    UITableView * m_tableView;
-    UIImageView * m_imageView;
-    NSArray *m_data;
+    UITableView * _tableView;
+    NSArray *_data;
 }
 
 

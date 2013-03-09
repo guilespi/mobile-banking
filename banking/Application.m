@@ -7,6 +7,7 @@
 //
 
 #import "Application.h"
+#import "UIColor+colorFromHexString.h"
 
 @implementation Application
 
@@ -16,6 +17,26 @@
     _views = [[NSMutableDictionary alloc] init];
     _headerSeparatorPosition = 0.68;
     return self;
+}
+
+-(void)initFromDictionary:(NSDictionary *)d {
+    _defaultLanguage = [d objectForKey:@"default-language"] ? : @"spanish";
+    _background = [d objectForKey:@"background"] ? : @"backgroundBrillo";
+    _backgroundColor = [UIColor colorFromHexString:[d objectForKey:@"background-color"] ?: @"#02253e"];
+    _logo = [d objectForKey:@"logo"] ? : @"backgroundBrillo";
+    _invertedLogo = [d objectForKey:@"inverted-logo"] ? : @"logoHeaderAzul";
+    //splash screen parsing
+    NSDictionary *splashDefinition = [d objectForKey:@"splash-screen"];
+    if (splashDefinition) {
+        _splashScreen = [[SplashScreen alloc] initWithDictionary:splashDefinition];
+        _splashScreen.app = self;
+    }
+    //color theme parsing
+    NSDictionary *themeDefinition = [d objectForKey:@"theme"];
+    if (!themeDefinition || ![themeDefinition isKindOfClass:[NSDictionary class]]) {
+        themeDefinition = [[NSDictionary alloc] init];
+    }
+    _theme = [[Theme alloc] initFromDictionary:themeDefinition];
 }
 
 -(void) run{

@@ -8,16 +8,11 @@
 
 #import <QuartzCore/QuartzCore.h>
 #import "MoneyCell.h"
-
-static const int TITLE_TAG = 1;
-static const int DESC_TAG = 2;
-static const int TOTAL_MONEY_TAG = 3;
-static const int PARTIAL_MONEY_TAG = 4;
-static const int PRODUCT_NUMBER_TAG = 5;
+#import "UIImage+imageFromColor.h"
 
 @implementation MoneyCell
 
-- (MoneyCell*) initWithDictionary:(NSDictionary*)definition {
+- (TableCell*) initWithDictionary:(NSDictionary*)definition {
     self = [super init];
     self.identifier = @"money-cell";
     NSDictionary *fields = [definition objectForKey:@"fields"];
@@ -29,6 +24,7 @@ static const int PRODUCT_NUMBER_TAG = 5;
     _totalMoneyField = [fields objectForKey:@"money-total"];
     _partialMoneyField = [fields objectForKey:@"money-partial"];
     _productNumberField = [fields objectForKey:@"product-number"];
+    _rightHeaderField = [fields objectForKey:@"right-header"];
     
     return self;
 }
@@ -61,14 +57,20 @@ static const int PRODUCT_NUMBER_TAG = 5;
     CGRect frame = CGRectMake(0,0,cellWidth, cellHeight);
     cell.contentView.frame =frame;
     
-    //cell background is transparent
+    //cell background is black with customized opacity
     UIView *backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, cellWidth, cellHeight * 0.94)];
-    backView.backgroundColor = theme.color1;
+    backView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:theme.tableCellOpacity];
     [cell.contentView addSubview:backView];
     
-    //title label
-    UILabel *titleLabel;
+    //cell selector
+    //TODO: image missing, fix this, should be a button!
+    UIImageView *selector = [[UIImageView alloc] initWithImage:[UIImage imageFromColor:[UIColor redColor]]];
+    selector.frame = CGRectMake(cellWidth - 15-margin, 0, 15, 18);
+    [cell.contentView addSubview:selector];
+    
+    UILabel *titleLabel, *rightHeaderLabel;
     UILabel *descriptionLabel, *totalMoneyLabel, *partialMoneyLabel, *productNumberLabel;
+    //title label
     float titleHeight = interleave * 2.8; //3.3
     float titlePosition = 0.0f; //the label borders make up for the padding
     titleLabel = [[UILabel alloc]
@@ -82,10 +84,24 @@ static const int PRODUCT_NUMBER_TAG = 5;
     titleLabel.lineBreakMode = NSLineBreakByWordWrapping;
     titleLabel.backgroundColor = [UIColor clearColor];
     titleLabel.font = [UIFont fontWithName:@"DIN-Regular" size:13];
-    //titleLabel.userInteractionEnabled = NO;
     titleLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
                                   UIViewAutoresizingFlexibleHeight;
     [cell.contentView addSubview:titleLabel];
+    
+    //right header
+    rightHeaderLabel = [[UILabel alloc]
+                  initWithFrame:CGRectMake(margin + cellWidth / 2 + margin,
+                                           titlePosition,
+                                           cellWidth / 2 - 4 * margin,
+                                           titleHeight)];
+    rightHeaderLabel.tag = RIGHT_HEADER_TAG;
+    rightHeaderLabel.textColor = theme.fontColor1;
+    rightHeaderLabel.textAlignment = NSTextAlignmentRight;
+    rightHeaderLabel.backgroundColor = [UIColor clearColor];
+    rightHeaderLabel.font = [UIFont fontWithName:@"DIN-Regular" size:10];
+    rightHeaderLabel.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin |
+    UIViewAutoresizingFlexibleHeight;
+    [cell.contentView addSubview:rightHeaderLabel];
     
     //description label, title takes two lines
     float descPosition = titlePosition + titleHeight * 2;
@@ -131,7 +147,7 @@ static const int PRODUCT_NUMBER_TAG = 5;
     
     //partial money label
     long moneyHeight = titleHeight;
-    long partialMoneyPosition =  dashVertPosition - interleave - moneyHeight;
+    long partialMoneyPosition =  dashVertPosition - moneyHeight;
     partialMoneyLabel = [[UILabel alloc]
                        initWithFrame:CGRectMake(dashStartPosition,
                                                 partialMoneyPosition,
@@ -197,16 +213,18 @@ static const int PRODUCT_NUMBER_TAG = 5;
     Updates cell content data given an already built cell
  */
 -(void)updateCell:(UITableViewCell*)cell withData:(NSDictionary*)row {
-    UILabel *titleLabel;
+    UILabel *titleLabel, *rightHeaderLabel;
     UILabel *descriptionLabel, *totalMoneyLabel, *partialMoneyLabel, *productNumberLabel;
     
     titleLabel = (UILabel *)[cell.contentView viewWithTag:TITLE_TAG];
+    rightHeaderLabel = (UILabel *)[cell.contentView viewWithTag:RIGHT_HEADER_TAG];
     descriptionLabel = (UILabel *)[cell.contentView viewWithTag:DESC_TAG];
     totalMoneyLabel = (UILabel *)[cell.contentView viewWithTag:TOTAL_MONEY_TAG];
     partialMoneyLabel = (UILabel *)[cell.contentView viewWithTag:PARTIAL_MONEY_TAG];
     productNumberLabel = (UILabel *)[cell.contentView viewWithTag:PRODUCT_NUMBER_TAG];
     
     titleLabel.text = [row objectForKey:_titleField];
+    rightHeaderLabel.text = [row objectForKey:_rightHeaderField];
     descriptionLabel.text = [row objectForKey:_descriptionField];
     totalMoneyLabel.text = [row objectForKey:_totalMoneyField];
     partialMoneyLabel.text = [row objectForKey:_partialMoneyField];

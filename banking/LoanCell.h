@@ -9,5 +9,7 @@
 #import "MoneyCell.h"
 
 @interface LoanCell : MoneyCell
+@property NSString *installmentField;
+@property NSString *installmentMonthField;
 
 @end

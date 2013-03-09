@@ -8,11 +8,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/StandardTableView.m"
-         timestampString = "384450393.927134"
+         timestampString = "384536999.064699"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "24"
-         endingLineNumber = "24"
+         startingLineNumber = "25"
+         endingLineNumber = "25"
          landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -21,11 +21,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "235"
-         endingLineNumber = "235"
+         startingLineNumber = "211"
+         endingLineNumber = "211"
          landmarkName = "-retrieveCustomizedApp"
          landmarkType = "5">
       </FileBreakpoint>
@@ -34,11 +34,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "217"
-         endingLineNumber = "217"
+         startingLineNumber = "193"
+         endingLineNumber = "193"
          landmarkName = "-syncHTTPRequest:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -112,11 +112,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "241"
-         endingLineNumber = "241"
+         startingLineNumber = "217"
+         endingLineNumber = "217"
          landmarkName = "-retrieveCustomizedApp"
          landmarkType = "5">
       </FileBreakpoint>
@@ -268,11 +268,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "128"
-         endingLineNumber = "128"
+         startingLineNumber = "104"
+         endingLineNumber = "104"
          landmarkName = "-parseListView:name:withList:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -281,11 +281,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
+         startingLineNumber = "75"
+         endingLineNumber = "75"
          landmarkName = "-parseNavigation:withNavigation:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -294,24 +294,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384450856.493812"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "52"
-         endingLineNumber = "52"
-         landmarkName = "-parseApp:withProperties:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "82"
-         endingLineNumber = "82"
+         startingLineNumber = "58"
+         endingLineNumber = "58"
          landmarkName = "-parseLogin:withProperties:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -326,45 +313,6 @@
          startingLineNumber = "88"
          endingLineNumber = "88"
          landmarkName = "-createTextField:inPosition:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/AppParser.m"
-         timestampString = "384450856.493812"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "65"
-         endingLineNumber = "65"
-         landmarkName = "-parseApp:withProperties:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/AppParser.m"
-         timestampString = "384450856.493812"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "59"
-         endingLineNumber = "59"
-         landmarkName = "-parseApp:withProperties:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/AppParser.m"
-         timestampString = "384450856.493812"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "69"
-         endingLineNumber = "69"
-         landmarkName = "-parseApp:withProperties:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -411,11 +359,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/AppParser.m"
-         timestampString = "384458526.432641"
+         timestampString = "384541277.579511"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "197"
-         endingLineNumber = "197"
+         startingLineNumber = "173"
+         endingLineNumber = "173"
          landmarkName = "-parseApplication"
          landmarkType = "5">
       </FileBreakpoint>
@@ -424,11 +372,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/StandardTableView.m"
-         timestampString = "384451033.281885"
+         timestampString = "384536999.064699"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "27"
-         endingLineNumber = "27"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
          landmarkName = "-initWithNibName:bundle:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -437,77 +385,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/StandardTableView.m"
-         timestampString = "384458306.111096"
+         timestampString = "384536999.064699"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "31"
-         endingLineNumber = "31"
+         startingLineNumber = "34"
+         endingLineNumber = "34"
          landmarkName = "-initWithNibName:bundle:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/StandardTableView.m"
-         timestampString = "384469799.776051"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "156"
-         endingLineNumber = "156"
-         landmarkName = "-tableView:cellForRowAtIndexPath:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/StandardTableView.m"
-         timestampString = "384469799.776051"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "105"
-         endingLineNumber = "105"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/StandardTableView.m"
-         timestampString = "384469799.776051"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "99"
-         endingLineNumber = "99"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/StandardTableView.m"
-         timestampString = "384469799.776051"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "109"
-         endingLineNumber = "109"
-         landmarkName = "-viewDidAppear:"
-         landmarkType = "5">
-      </FileBreakpoint>
-      <FileBreakpoint
-         shouldBeEnabled = "No"
-         ignoreCount = "0"
-         continueAfterRunningActions = "No"
-         filePath = "banking/StandardTableView.m"
-         timestampString = "384469799.776051"
-         startingColumnNumber = "9223372036854775807"
-         endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "123"
-         endingLineNumber = "123"
-         landmarkName = "-tableView:heightForRowAtIndexPath:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -515,11 +398,11 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/MoneyCell.m"
-         timestampString = "384471342.141133"
+         timestampString = "384545847.607568"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "210"
-         endingLineNumber = "210"
+         startingLineNumber = "228"
+         endingLineNumber = "228"
          landmarkName = "-updateCell:withData:"
          landmarkType = "5">
       </FileBreakpoint>
@@ -528,12 +411,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/MoneyCell.m"
-         timestampString = "384471342.141133"
+         timestampString = "384545847.607568"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "72"
-         endingLineNumber = "72"
-         landmarkName = "-buildCell:"
+         startingLineNumber = "73"
+         endingLineNumber = "73"
+         landmarkName = "-buildCell:withTheme:forRow:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -541,12 +424,12 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/MoneyCell.m"
-         timestampString = "384471342.141133"
+         timestampString = "384545847.607568"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "74"
-         endingLineNumber = "74"
-         landmarkName = "-buildCell:"
+         startingLineNumber = "76"
+         endingLineNumber = "76"
+         landmarkName = "-buildCell:withTheme:forRow:"
          landmarkType = "5">
       </FileBreakpoint>
       <FileBreakpoint
@@ -554,12 +437,64 @@
          ignoreCount = "0"
          continueAfterRunningActions = "No"
          filePath = "banking/MoneyCell.m"
-         timestampString = "384461611.645549"
+         timestampString = "384477328.583633"
          startingColumnNumber = "9223372036854775807"
          endingColumnNumber = "9223372036854775807"
-         startingLineNumber = "42"
-         endingLineNumber = "42"
+         startingLineNumber = "38"
+         endingLineNumber = "38"
          landmarkName = "-getCellHeight:forRow:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "banking/AppParser.m"
+         timestampString = "384541277.579511"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "159"
+         endingLineNumber = "159"
+         landmarkName = "-appFromDictionary:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "banking/AppParser.m"
+         timestampString = "384541277.579511"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "98"
+         endingLineNumber = "98"
+         landmarkName = "-parseNavigation:withNavigation:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "banking/LoanCell.m"
+         timestampString = "384543233.708984"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "28"
+         endingLineNumber = "28"
+         landmarkName = "-initWithDictionary:"
+         landmarkType = "5">
+      </FileBreakpoint>
+      <FileBreakpoint
+         shouldBeEnabled = "No"
+         ignoreCount = "0"
+         continueAfterRunningActions = "No"
+         filePath = "banking/LoanCell.m"
+         timestampString = "384543247.035745"
+         startingColumnNumber = "9223372036854775807"
+         endingColumnNumber = "9223372036854775807"
+         startingLineNumber = "94"
+         endingLineNumber = "94"
+         landmarkName = "-updateCell:withData:"
          landmarkType = "5">
       </FileBreakpoint>
    </FileBreakpoints>

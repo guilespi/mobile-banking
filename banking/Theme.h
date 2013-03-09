@@ -23,5 +23,10 @@
 @property UIColor *fontColor3;
 //lines
 @property UIColor *dottedLineColor;
+//color opacities
+@property float headerOpacity;
+@property float tableCellOpacity;
+
+-(Theme*) initFromDictionary:(NSDictionary *)d;
 
 @end

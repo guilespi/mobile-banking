@@ -25,6 +25,8 @@
     if (!_documentTypes) {
         return;
     }
+    //If a keyboard is visible (the user name keyboard or the password keyboard for example), dismiss it
+    [self.view endEditing:YES];
     _documentPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
     _documentPicker.delegate = self;
     _documentPicker.showsSelectionIndicator = YES;

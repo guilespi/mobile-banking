@@ -89,6 +89,8 @@
     txtField.textColor = _definition.app.theme.fontColor2;
     txtField.backgroundColor = _definition.app.theme.color2;
     txtField.contentVerticalAlignment = UIControlContentVerticalAlignmentCenter;
+    txtField.returnKeyType = UIReturnKeyDone;
+    
     [self addRoundedCorners:txtField.layer];
     //set padding using a dummy view on the left
     UIView *paddingView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, _borderWidth / 2, _textFieldHeight)];

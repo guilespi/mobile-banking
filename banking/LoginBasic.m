@@ -25,12 +25,20 @@
     if (!_documentTypes) {
         return;
     }
+    
     //If a keyboard is visible (the user name keyboard or the password keyboard for example), dismiss it
     [self.view endEditing:YES];
-    _documentPicker = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 200, 320, 200)];
-    _documentPicker.delegate = self;
-    _documentPicker.showsSelectionIndicator = YES;
-    [self.view addSubview:_documentPicker];
+    
+    //Initialize the picker once
+    if (!_documentPicker) {
+        _documentPicker = [[AnimatedPickerView alloc] initAtBottomOfScreen];
+        _documentPicker.delegate = self;
+        
+        //Add the document picker as a subview to the window, rather than the view controller's view, in order to position it over the tab bar
+        [[[UIApplication sharedApplication] keyWindow] addSubview:_documentPicker];
+    }
+
+    _documentPicker.hidden = !_documentPicker.hidden;
 }
 
 /*
@@ -257,13 +265,16 @@
  */
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow: (NSInteger)row inComponent:(NSInteger)component {
     // Handle the selection
+    
     _documentPicker.hidden = true;
-    if (row == 0) {
-        //teoretically this is not possible since this row cannot be selected
-        return;
+    
+    NSString *text;
+    
+    if (row > 0) {
+        NSDictionary *data = _documentTypes[row - 1];
+        text = [data objectForKey:@"description"];
     }
-    NSDictionary *data = _documentTypes[row - 1];
-    NSString *text = [data objectForKey:@"description"];
+    
     [_txtDocumentType setText:text];
 }
 
